@@ -1,0 +1,607 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/NES_DragonBoard_V10/simulation/modelsim
+vapu
+Z1 !s110 1642697074
+!i10b 1
+!s100 @R[5L?]>2O5ThXfzl=7^P3
+I9^k<[W9QgA=3T?9[:jkng1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1625010724
+8E:/NES_DragonBoard_V10/cpu/apu/apu.v
+FE:/NES_DragonBoard_V10/cpu/apu/apu.v
+Z3 L0 28
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1642697074.000000
+!s107 E:/NES_DragonBoard_V10/cpu/apu/apu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu/apu|E:/NES_DragonBoard_V10/cpu/apu/apu.v|
+!i113 1
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu
+Z8 tCvgOpt 0
+vapu_div
+R1
+!i10b 1
+!s100 eKzaAlI?0n^61jieH@LZl3
+IfXLmC5E45M`7z>JYj8`PW2
+R2
+R0
+Z9 w1342298326
+8E:/NES_DragonBoard_V10/cpu/apu/apu_div.v
+FE:/NES_DragonBoard_V10/cpu/apu/apu_div.v
+L0 34
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/NES_DragonBoard_V10/cpu/apu/apu_div.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu/apu|E:/NES_DragonBoard_V10/cpu/apu/apu_div.v|
+!i113 1
+R6
+R7
+R8
+vapu_envelope_generator
+R1
+!i10b 1
+!s100 B>J30<0o2897`ZFT8dSEJ1
+I9bg^MDoSiF?HIQ6bde?2`2
+R2
+R0
+R9
+8E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v
+FE:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v
+Z10 L0 30
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu/apu|E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v|
+!i113 1
+R6
+R7
+R8
+vapu_frame_counter
+R1
+!i10b 1
+!s100 nc[Rz<[5[k_W>ZN0MLiLh1
+ITik1KE1g[I0z6X1j3[ON;0
+R2
+R0
+R9
+8E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v
+FE:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu/apu|E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v|
+!i113 1
+R6
+R7
+R8
+vapu_length_counter
+R1
+!i10b 1
+!s100 N04WX]9;5>VM3dQBPZOCg1
+IO1CAMD0V4D55Xo8R:9B@b0
+R2
+R0
+R9
+8E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v
+FE:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v
+R10
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu/apu|E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v|
+!i113 1
+R6
+R7
+R8
+vapu_mixer
+R1
+!i10b 1
+!s100 RMRaFnKf4kObXTT281ZOc3
+I1fV;]e7aR@1P50bh;YiWM2
+R2
+R0
+R9
+8E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v
+FE:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu/apu|E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v|
+!i113 1
+R6
+R7
+R8
+vapu_noise
+Z11 !s110 1642697075
+!i10b 1
+!s100 QF;Yd3=>0DEb[LAccWiG?1
+Ig3eoS`^GJ]4<R]^;>1UG_0
+R2
+R0
+R9
+8E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v
+FE:/NES_DragonBoard_V10/cpu/apu/apu_noise.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu/apu|E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v|
+!i113 1
+R6
+R7
+R8
+vapu_pulse
+R11
+!i10b 1
+!s100 UdIi9;Qd>ba3c>dAY3o8A0
+I_RA6ch:z2o`SYVj97NCOP2
+R2
+R0
+R9
+8E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v
+FE:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v
+R3
+R4
+r1
+!s85 0
+31
+Z12 !s108 1642697075.000000
+!s107 E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu/apu|E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v|
+!i113 1
+R6
+R7
+R8
+vapu_triangle
+R11
+!i10b 1
+!s100 ?^L=`hh=ASo[M:2S8^FIR0
+Id7TK2XnzacDG6D`mQdnC_0
+R2
+R0
+R9
+8E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v
+FE:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v
+R3
+R4
+r1
+!s85 0
+31
+R12
+!s107 E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu/apu|E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v|
+!i113 1
+R6
+R7
+R8
+vcart_02
+R1
+!i10b 1
+!s100 5i<9]4WdlXhCG9lU]HYPn0
+IjCoiC0KUSIQakiZCjE<[W3
+R2
+R0
+w1642694597
+8E:/NES_DragonBoard_V10/cart/cart_02.v
+FE:/NES_DragonBoard_V10/cart/cart_02.v
+L0 20
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/NES_DragonBoard_V10/cart/cart_02.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cart|E:/NES_DragonBoard_V10/cart/cart_02.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cart
+R8
+vCHR_RAM
+R11
+!i10b 1
+!s100 h4k_J=470Yf?=X`_h9S5V2
+Ie3hRaj:HZ;kcN]a39e3AN3
+R2
+R0
+w1642647994
+8E:/NES_DragonBoard_V10/CHR_RAM.v
+FE:/NES_DragonBoard_V10/CHR_RAM.v
+Z13 L0 39
+R4
+r1
+!s85 0
+31
+R12
+!s107 E:/NES_DragonBoard_V10/CHR_RAM.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/CHR_RAM.v|
+!i113 1
+R6
+Z14 !s92 -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10
+R8
+n@c@h@r_@r@a@m
+vcpu
+R11
+!i10b 1
+!s100 R@b[M5XUkl:UET1?eJiBJ0
+I6<CW82:KfhCh;jBkHXD800
+R2
+R0
+w1639882486
+8E:/NES_DragonBoard_V10/cpu/cpu.v
+FE:/NES_DragonBoard_V10/cpu/cpu.v
+R3
+R4
+r1
+!s85 0
+31
+R12
+!s107 E:/NES_DragonBoard_V10/cpu/cpu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu|E:/NES_DragonBoard_V10/cpu/cpu.v|
+!i113 1
+R6
+Z15 !s92 -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu
+R8
+vI2C_EEPROM
+Z16 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+R11
+!i10b 1
+!s100 Mcn0@VMT6QzEMV;BRa=jN3
+I;B=YS=Anz9d7d31NzO>0G0
+R2
+!s105 eeprom_sv_unit
+S1
+R0
+w1642696946
+8E:/NES_DragonBoard_V10/eeprom.sv
+FE:/NES_DragonBoard_V10/eeprom.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 E:/NES_DragonBoard_V10/eeprom.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/eeprom.sv|
+!i113 1
+Z17 o-sv -work work
+Z18 !s92 -sv -work work +incdir+E:/NES_DragonBoard_V10
+R8
+n@i2@c_@e@e@p@r@o@m
+vI2C_phy
+R16
+R11
+!i10b 1
+!s100 BT5XXd8AXd1AFSVh=A2?53
+IfTc8Bo_XDmQamW=8[=dYf0
+R2
+!s105 I2C_phy_sv_unit
+S1
+R0
+w1642301596
+8E:/NES_DragonBoard_V10/I2C_phy.sv
+FE:/NES_DragonBoard_V10/I2C_phy.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 E:/NES_DragonBoard_V10/I2C_phy.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/I2C_phy.sv|
+!i113 1
+R17
+R18
+R8
+n@i2@c_phy
+vjp
+R11
+!i10b 1
+!s100 Rg75Gg^=JTcoOC]ffFToI0
+Inbz6_aciX0UZNjZ2F0_Ez0
+R2
+R0
+w1564819780
+8E:/NES_DragonBoard_V10/cpu/jp.v
+FE:/NES_DragonBoard_V10/cpu/jp.v
+R3
+R4
+r1
+!s85 0
+31
+R12
+!s107 E:/NES_DragonBoard_V10/cpu/jp.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu|E:/NES_DragonBoard_V10/cpu/jp.v|
+!i113 1
+R6
+R15
+R8
+vNES_DragonBoard
+Z19 !s110 1642697076
+!i10b 1
+!s100 <RMNYlbLjzU>CoK^jIV_72
+I:9I=NO5?m^6UjS:6ngkhJ1
+R2
+R0
+w1642650192
+8E:/NES_DragonBoard_V10/nes_top.v
+FE:/NES_DragonBoard_V10/nes_top.v
+L0 1
+R4
+r1
+!s85 0
+31
+R12
+!s107 E:/NES_DragonBoard_V10/nes_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/nes_top.v|
+!i113 1
+R6
+R14
+R8
+n@n@e@s_@dragon@board
+vPLL0
+R19
+!i10b 1
+!s100 G<aY3aOSoTQ3J`lek;BD[2
+I5H]gfYOgj7zgk2I7lh]ik0
+R2
+R0
+w1642650065
+8E:/NES_DragonBoard_V10/PLL0.v
+FE:/NES_DragonBoard_V10/PLL0.v
+R13
+R4
+r1
+!s85 0
+31
+Z20 !s108 1642697076.000000
+!s107 E:/NES_DragonBoard_V10/PLL0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/PLL0.v|
+!i113 1
+R6
+R14
+R8
+n@p@l@l0
+vPLL0_altpll
+R1
+!i10b 1
+!s100 oXaa`1FoBg7l_;23o4fHE3
+I?bh@bTYTNReGPkDzCX;c<2
+R2
+R0
+w1642650225
+8E:/NES_DragonBoard_V10/db/pll0_altpll.v
+FE:/NES_DragonBoard_V10/db/pll0_altpll.v
+Z21 L0 29
+R4
+r1
+!s85 0
+31
+!s108 1642697073.000000
+!s107 E:/NES_DragonBoard_V10/db/pll0_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/db|E:/NES_DragonBoard_V10/db/pll0_altpll.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/db
+R8
+n@p@l@l0_altpll
+vPPU_gen2
+R19
+!i10b 1
+!s100 V6P:<DjGa<gh?VaM2Bn=K3
+IkWeSQ@X^g32VROG?UOim13
+R2
+R0
+w1639955670
+8E:/NES_DragonBoard_V10/PPU_gen2.v
+FE:/NES_DragonBoard_V10/PPU_gen2.v
+R10
+R4
+r1
+!s85 0
+31
+R20
+!s107 E:/NES_DragonBoard_V10/PPU_gen2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/PPU_gen2.v|
+!i113 1
+R6
+R14
+R8
+n@p@p@u_gen2
+vrp2a03
+R11
+!i10b 1
+!s100 @4Aie3>bN5cI__`VdKj>K0
+IfYhadlkSmX5Ho3YCz2TO40
+R2
+R0
+w1639882504
+8E:/NES_DragonBoard_V10/cpu/rp2a03.v
+FE:/NES_DragonBoard_V10/cpu/rp2a03.v
+R21
+R4
+r1
+!s85 0
+31
+R12
+!s107 E:/NES_DragonBoard_V10/cpu/rp2a03.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu|E:/NES_DragonBoard_V10/cpu/rp2a03.v|
+!i113 1
+R6
+R15
+R8
+vsdr
+R16
+R19
+!i10b 1
+!s100 704jAad6PdH2L7j1LDJBn1
+I8BoPIFnoDfe7WNI9=VP8J1
+R2
+!s105 sdr_sv_unit
+S1
+R0
+w1642693857
+8E:/NES_DragonBoard_V10/sdr.sv
+FE:/NES_DragonBoard_V10/sdr.sv
+FE:/NES_DragonBoard_V10/sdr_parameters.sv
+L0 48
+R4
+r1
+!s85 0
+31
+R20
+!s107 E:/NES_DragonBoard_V10/sdr_parameters.sv|E:/NES_DragonBoard_V10/sdr.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/sdr.sv|
+!i113 1
+R17
+R18
+R8
+vSDRAM_SP8_I
+R16
+R19
+!i10b 1
+!s100 bo4dPS5^UT57J_N6X[XT_3
+ILoSb2CHUnR6hmRoCm_iWB3
+R2
+!s105 SDRAM_SP8_I_sv_unit
+S1
+R0
+w1639955195
+8E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv
+FE:/NES_DragonBoard_V10/SDRAM_SP8_I.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R20
+!s107 E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv|
+!i113 1
+R17
+R18
+R8
+n@s@d@r@a@m_@s@p8_@i
+vsprdma
+R11
+!i10b 1
+!s100 EmX`d4`RnUTlB;WzJ318B1
+I0VbW^b8hH3fo7F`=da`A10
+R2
+R0
+w1639873289
+8E:/NES_DragonBoard_V10/cpu/sprdma.v
+FE:/NES_DragonBoard_V10/cpu/sprdma.v
+R3
+R4
+r1
+!s85 0
+31
+R12
+!s107 E:/NES_DragonBoard_V10/cpu/sprdma.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10/cpu|E:/NES_DragonBoard_V10/cpu/sprdma.v|
+!i113 1
+R6
+R15
+R8
+vTestbench_sdram
+R16
+R19
+!i10b 1
+!s100 aHk_ndg:YnCndjDOXCTQ=2
+IkI6Cd6TF1[^L8nhB:d4Pb2
+R2
+!s105 testbench_sv_unit
+S1
+R0
+w1642694385
+8E:/NES_DragonBoard_V10/testbench.sv
+FE:/NES_DragonBoard_V10/testbench.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R20
+!s107 E:/NES_DragonBoard_V10/testbench.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/testbench.sv|
+!i113 1
+R17
+R18
+R8
+n@testbench_sdram
+vvram
+R19
+!i10b 1
+!s100 IQ8h7a5VDBbW9_0O6C^YT1
+IQdC5[1VGDco]L>WMnEPgD3
+R2
+R0
+w1639792565
+8E:/NES_DragonBoard_V10/vram.v
+FE:/NES_DragonBoard_V10/vram.v
+R13
+R4
+r1
+!s85 0
+31
+R20
+!s107 E:/NES_DragonBoard_V10/vram.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/vram.v|
+!i113 1
+R6
+R14
+R8
+vwram
+R19
+!i10b 1
+!s100 2d[QCRmfgh0]aQY`nZZJ00
+IcWN_F22bSQMcWog8VQXOR3
+R2
+R0
+w1639792905
+8E:/NES_DragonBoard_V10/wram.v
+FE:/NES_DragonBoard_V10/wram.v
+R13
+R4
+r1
+!s85 0
+31
+R20
+!s107 E:/NES_DragonBoard_V10/wram.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/NES_DragonBoard_V10|E:/NES_DragonBoard_V10/wram.v|
+!i113 1
+R6
+R14
+R8

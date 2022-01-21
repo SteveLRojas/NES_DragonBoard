@@ -1,0 +1,34 @@
+Revision 4:
+PPU_gen2 module created.
+Added coe files for Donkey Kong.
+Created 16KB PRG ROM.
+Configured cart for Donkey Kong.
+Created testbench.
+Added CPU reset logic for simulation.
+	CPU reset logic had been removed because it was broken (reset caused the CPU to freeze until a reset interrupt with nres).
+	Fixed CPU reset logic.
+Simulation and initial debugging complete.
+	The first 8 pixels of the first line may not be drawn correctly.
+	This may not get fixed in Gen 2, as it requires the prerender scanline.
+	A bug causes graphical artefacts in Super Mario Bros, but this is likely a problem with the rest of the system and not the PPU.
+
+Revision 5:
+Created new project in Vivado 2019.1.
+Created new vram and wram modules.
+Fixed bug in spr_y_compare logic.
+Fixed bug in ri (address was being incremented early in 2007 reads).
+Fixed timing bug that caused the image to be shifted left by one pixel.
+
+Revision 6:
+Created new project in Quartus (18.1)
+Created new vram and wram modules.
+Created new cart module.
+Added synchronizer to reset input.
+Removed nres input from CPU module.
+Found hardware bug in DragonBoard (RGB resistors swapped).
+Changed RGB pin assignments.
+Created SDRAM_SP8_I module.
+Created I2C_EEPROM module.
+Added I2C_phy module.
+Modified cart_02 module to use SDRAM and EEPROM memories.
+Created new testbench for SDRAM and I2C debugging.

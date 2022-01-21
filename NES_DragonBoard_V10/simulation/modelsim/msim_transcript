@@ -1,0 +1,1058 @@
+# Reading D:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do NES_DragonBoard_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/PPU_gen2.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/PPU_gen2.v 
+# -- Compiling module PPU_gen2
+# ** Warning: E:/NES_DragonBoard_V10/PPU_gen2.v(357): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# Top level modules:
+# 	PPU_gen2
+# End time: 10:44:32 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/nes_top.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/nes_top.v 
+# -- Compiling module NES_DragonBoard
+# 
+# Top level modules:
+# 	NES_DragonBoard
+# End time: 10:44:32 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/sprdma.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/sprdma.v 
+# -- Compiling module sprdma
+# 
+# Top level modules:
+# 	sprdma
+# End time: 10:44:32 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/rp2a03.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/rp2a03.v 
+# -- Compiling module rp2a03
+# 
+# Top level modules:
+# 	rp2a03
+# End time: 10:44:32 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/jp.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/jp.v 
+# -- Compiling module jp
+# 
+# Top level modules:
+# 	jp
+# End time: 10:44:32 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/cpu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/cpu.v 
+# -- Compiling module cpu
+# 
+# Top level modules:
+# 	cpu
+# End time: 10:44:32 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v 
+# -- Compiling module apu_triangle
+# 
+# Top level modules:
+# 	apu_triangle
+# End time: 10:44:32 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v 
+# -- Compiling module apu_pulse
+# 
+# Top level modules:
+# 	apu_pulse
+# End time: 10:44:32 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v 
+# -- Compiling module apu_noise
+# 
+# Top level modules:
+# 	apu_noise
+# End time: 10:44:32 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:32 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v 
+# -- Compiling module apu_mixer
+# 
+# Top level modules:
+# 	apu_mixer
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v 
+# -- Compiling module apu_length_counter
+# 
+# Top level modules:
+# 	apu_length_counter
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v 
+# -- Compiling module apu_frame_counter
+# 
+# Top level modules:
+# 	apu_frame_counter
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v 
+# -- Compiling module apu_envelope_generator
+# 
+# Top level modules:
+# 	apu_envelope_generator
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_div.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_div.v 
+# -- Compiling module apu_div
+# 
+# Top level modules:
+# 	apu_div
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu.v 
+# -- Compiling module apu
+# 
+# Top level modules:
+# 	apu
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cart {E:/NES_DragonBoard_V10/cart/cart_02.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cart" E:/NES_DragonBoard_V10/cart/cart_02.v 
+# -- Compiling module cart_02
+# 
+# Top level modules:
+# 	cart_02
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/vram.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/vram.v 
+# -- Compiling module vram
+# 
+# Top level modules:
+# 	vram
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/wram.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/wram.v 
+# -- Compiling module wram
+# 
+# Top level modules:
+# 	wram
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/PLL0.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/PLL0.v 
+# -- Compiling module PLL0
+# 
+# Top level modules:
+# 	PLL0
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/CHR_RAM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/CHR_RAM.v 
+# -- Compiling module CHR_RAM
+# 
+# Top level modules:
+# 	CHR_RAM
+# End time: 10:44:33 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/db {E:/NES_DragonBoard_V10/db/pll0_altpll.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:33 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/db" E:/NES_DragonBoard_V10/db/pll0_altpll.v 
+# -- Compiling module PLL0_altpll
+# 
+# Top level modules:
+# 	PLL0_altpll
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/eeprom.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/eeprom.sv 
+# -- Compiling module I2C_EEPROM
+# 
+# Top level modules:
+# 	I2C_EEPROM
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv 
+# -- Compiling module SDRAM_SP8_I
+# 
+# Top level modules:
+# 	SDRAM_SP8_I
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/I2C_phy.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/I2C_phy.sv 
+# -- Compiling module I2C_phy
+# 
+# Top level modules:
+# 	I2C_phy
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cart {E:/NES_DragonBoard_V10/cart/cart_02.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cart" E:/NES_DragonBoard_V10/cart/cart_02.v 
+# -- Compiling module cart_02
+# 
+# Top level modules:
+# 	cart_02
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu.v 
+# -- Compiling module apu
+# 
+# Top level modules:
+# 	apu
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_div.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_div.v 
+# -- Compiling module apu_div
+# 
+# Top level modules:
+# 	apu_div
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v 
+# -- Compiling module apu_envelope_generator
+# 
+# Top level modules:
+# 	apu_envelope_generator
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v 
+# -- Compiling module apu_frame_counter
+# 
+# Top level modules:
+# 	apu_frame_counter
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v 
+# -- Compiling module apu_length_counter
+# 
+# Top level modules:
+# 	apu_length_counter
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v 
+# -- Compiling module apu_mixer
+# 
+# Top level modules:
+# 	apu_mixer
+# End time: 10:44:34 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:34 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v 
+# -- Compiling module apu_noise
+# 
+# Top level modules:
+# 	apu_noise
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v 
+# -- Compiling module apu_pulse
+# 
+# Top level modules:
+# 	apu_pulse
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v 
+# -- Compiling module apu_triangle
+# 
+# Top level modules:
+# 	apu_triangle
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/cpu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/cpu.v 
+# -- Compiling module cpu
+# 
+# Top level modules:
+# 	cpu
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/jp.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/jp.v 
+# -- Compiling module jp
+# 
+# Top level modules:
+# 	jp
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/rp2a03.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/rp2a03.v 
+# -- Compiling module rp2a03
+# 
+# Top level modules:
+# 	rp2a03
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/sprdma.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/sprdma.v 
+# -- Compiling module sprdma
+# 
+# Top level modules:
+# 	sprdma
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/CHR_RAM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/CHR_RAM.v 
+# -- Compiling module CHR_RAM
+# 
+# Top level modules:
+# 	CHR_RAM
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/eeprom.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/eeprom.sv 
+# -- Compiling module I2C_EEPROM
+# 
+# Top level modules:
+# 	I2C_EEPROM
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/I2C_phy.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/I2C_phy.sv 
+# -- Compiling module I2C_phy
+# 
+# Top level modules:
+# 	I2C_phy
+# End time: 10:44:35 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/nes_top.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:35 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/nes_top.v 
+# -- Compiling module NES_DragonBoard
+# 
+# Top level modules:
+# 	NES_DragonBoard
+# End time: 10:44:36 on Jan 20,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/PLL0.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:36 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/PLL0.v 
+# -- Compiling module PLL0
+# 
+# Top level modules:
+# 	PLL0
+# End time: 10:44:36 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/PPU_gen2.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:36 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/PPU_gen2.v 
+# -- Compiling module PPU_gen2
+# ** Warning: E:/NES_DragonBoard_V10/PPU_gen2.v(357): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# Top level modules:
+# 	PPU_gen2
+# End time: 10:44:36 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/sdr.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:36 on Jan 20,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/sdr.sv 
+# -- Compiling module sdr
+# ** Warning: ** while parsing file included at E:/NES_DragonBoard_V10/sdr.sv(50)
+# ** at E:/NES_DragonBoard_V10/sdr_parameters.sv(79): (vlog-2263) Redefinition of macro: 'sg75' (previously defined near E:/NES_DragonBoard_V10/sdr_parameters.sv(29), old value '1', new value '') .
+# 
+# Top level modules:
+# 	sdr
+# End time: 10:44:36 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:36 on Jan 20,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv 
+# -- Compiling module SDRAM_SP8_I
+# 
+# Top level modules:
+# 	SDRAM_SP8_I
+# End time: 10:44:36 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/testbench.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:36 on Jan 20,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/testbench.sv 
+# -- Compiling module Testbench_sdram
+# 
+# Top level modules:
+# 	Testbench_sdram
+# End time: 10:44:36 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/vram.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:36 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/vram.v 
+# -- Compiling module vram
+# 
+# Top level modules:
+# 	vram
+# End time: 10:44:36 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/wram.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:44:36 on Jan 20,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/wram.v 
+# -- Compiling module wram
+# 
+# Top level modules:
+# 	wram
+# End time: 10:44:36 on Jan 20,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  Testbench_sdram
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" Testbench_sdram 
+# Start time: 10:44:36 on Jan 20,2022
+# Loading sv_std.std
+# Loading work.Testbench_sdram
+# Loading work.NES_DragonBoard
+# Loading work.PLL0
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.rp2a03
+# Loading work.cpu
+# Loading work.apu
+# Loading work.apu_div
+# Loading work.apu_frame_counter
+# Loading work.apu_pulse
+# Loading work.apu_envelope_generator
+# Loading work.apu_length_counter
+# Loading work.apu_triangle
+# Loading work.apu_noise
+# Loading work.apu_mixer
+# Loading work.jp
+# Loading work.sprdma
+# Loading work.PPU_gen2
+# Loading work.cart_02
+# Loading work.SDRAM_SP8_I
+# Loading work.I2C_EEPROM
+# Loading work.I2C_phy
+# Loading work.CHR_RAM
+# Loading altera_mf_ver.altsyncram
+# Loading work.vram
+# Loading work.wram
+# Loading work.sdr
+# Loading altera_mf_ver.MF_cycloneiii_pll
+# Loading altera_mf_ver.cda_m_cntr
+# Loading altera_mf_ver.cda_n_cntr
+# Loading altera_mf_ver.cda_scale_cntr
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: Design size of 10220 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 1 us
+#  Note : Cyclone IV E PLL locked to incoming clock
+# Time: 90.0 ns  Instance: Testbench_sdram.nes_inst.PLL_inst.altpll_component.cycloneiii_pll.pll3
+# Testbench_sdram.sdram0 : at time     310.0 ns LMR  : Load Mode Register
+# Testbench_sdram.sdram0 :                             CAS Latency      = 2
+# Testbench_sdram.sdram0 :                             Burst Length     = 1
+# Testbench_sdram.sdram0 :                             Burst Type       = Sequential
+# Testbench_sdram.sdram0 :                             Write Burst Mode = Programmed Burst Length
+# Testbench_sdram.sdram0 : at time     350.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     450.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     550.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     650.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     750.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     850.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     950.0 ns AREF : Auto Refresh
+add wave -position insertpoint  \
+sim:/Testbench_sdram/nes_inst/cart_blk/clk_sdram \
+sim:/Testbench_sdram/nes_inst/cart_blk/clk_sys \
+sim:/Testbench_sdram/nes_inst/cart_blk/init_address \
+sim:/Testbench_sdram/nes_inst/cart_blk/init_data \
+sim:/Testbench_sdram/nes_inst/cart_blk/init_ready \
+sim:/Testbench_sdram/nes_inst/cart_blk/init_req \
+sim:/Testbench_sdram/nes_inst/cart_blk/mem_address \
+sim:/Testbench_sdram/nes_inst/cart_blk/mem_ready \
+sim:/Testbench_sdram/nes_inst/cart_blk/mem_req \
+sim:/Testbench_sdram/nes_inst/cart_blk/prg_a_in \
+sim:/Testbench_sdram/nes_inst/cart_blk/prg_d_in \
+sim:/Testbench_sdram/nes_inst/cart_blk/prg_d_out \
+sim:/Testbench_sdram/nes_inst/cart_blk/prg_nce_in \
+sim:/Testbench_sdram/nes_inst/cart_blk/prg_r_nw_in \
+sim:/Testbench_sdram/nes_inst/cart_blk/reset_hold
+add wave -position insertpoint  \
+sim:/Testbench_sdram/nes_inst/cart_blk/EEPROM_inst/address_counter \
+sim:/Testbench_sdram/nes_inst/cart_blk/EEPROM_inst/data_from_master \
+sim:/Testbench_sdram/nes_inst/cart_blk/EEPROM_inst/i2c_read_req \
+sim:/Testbench_sdram/nes_inst/cart_blk/EEPROM_inst/i2c_ready \
+sim:/Testbench_sdram/nes_inst/cart_blk/EEPROM_inst/i2c_start_req \
+sim:/Testbench_sdram/nes_inst/cart_blk/EEPROM_inst/i2c_stop_req \
+sim:/Testbench_sdram/nes_inst/cart_blk/EEPROM_inst/i2c_write_req \
+sim:/Testbench_sdram/nes_inst/cart_blk/EEPROM_inst/read_flag \
+sim:/Testbench_sdram/nes_inst/cart_blk/EEPROM_inst/state
+restart
+run
+#  Note : Cyclone IV E PLL locked to incoming clock
+# Time: 90.0 ns  Instance: Testbench_sdram.nes_inst.PLL_inst.altpll_component.cycloneiii_pll.pll3
+# Testbench_sdram.sdram0 : at time     310.0 ns LMR  : Load Mode Register
+# Testbench_sdram.sdram0 :                             CAS Latency      = 2
+# Testbench_sdram.sdram0 :                             Burst Length     = 1
+# Testbench_sdram.sdram0 :                             Burst Type       = Sequential
+# Testbench_sdram.sdram0 :                             Write Burst Mode = Programmed Burst Length
+# Testbench_sdram.sdram0 : at time     350.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     450.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     550.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     650.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     750.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     850.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     950.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time    1050.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   51310.0 ns ACT  : Bank = 0 Row =    0
+# Testbench_sdram.sdram0 : at time   51350.0 ns WRITE: Bank = 0 Row =    0, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   51370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time   51430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   60810.0 ns ACT  : Bank = 1 Row =    0
+# Testbench_sdram.sdram0 : at time   60850.0 ns WRITE: Bank = 1 Row =    0, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   60870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time   60930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   70310.0 ns ACT  : Bank = 0 Row =    1
+# Testbench_sdram.sdram0 : at time   70350.0 ns WRITE: Bank = 0 Row =    1, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   70370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time   70430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   79810.0 ns ACT  : Bank = 1 Row =    1
+# Testbench_sdram.sdram0 : at time   79850.0 ns WRITE: Bank = 1 Row =    1, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   79870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time   79930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   89310.0 ns ACT  : Bank = 0 Row =    2
+# Testbench_sdram.sdram0 : at time   89350.0 ns WRITE: Bank = 0 Row =    2, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   89370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time   89430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   98810.0 ns ACT  : Bank = 1 Row =    2
+# Testbench_sdram.sdram0 : at time   98850.0 ns WRITE: Bank = 1 Row =    2, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   98870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time   98930.0 ns AREF : Auto Refresh
+add wave -position insertpoint  \
+sim:/Testbench_sdram/nes_inst/cart_blk/SDRAM_inst/req_flag
+restart
+run
+#  Note : Cyclone IV E PLL locked to incoming clock
+# Time: 90.0 ns  Instance: Testbench_sdram.nes_inst.PLL_inst.altpll_component.cycloneiii_pll.pll3
+# Testbench_sdram.sdram0 : at time     310.0 ns LMR  : Load Mode Register
+# Testbench_sdram.sdram0 :                             CAS Latency      = 2
+# Testbench_sdram.sdram0 :                             Burst Length     = 1
+# Testbench_sdram.sdram0 :                             Burst Type       = Sequential
+# Testbench_sdram.sdram0 :                             Write Burst Mode = Programmed Burst Length
+# Testbench_sdram.sdram0 : at time     350.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     450.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     550.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     650.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     750.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     850.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     950.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time    1050.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   51310.0 ns ACT  : Bank = 0 Row =    0
+# Testbench_sdram.sdram0 : at time   51350.0 ns WRITE: Bank = 0 Row =    0, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   51370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time   51430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   60810.0 ns ACT  : Bank = 1 Row =    0
+# Testbench_sdram.sdram0 : at time   60850.0 ns WRITE: Bank = 1 Row =    0, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   60870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time   60930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   70310.0 ns ACT  : Bank = 0 Row =    1
+# Testbench_sdram.sdram0 : at time   70350.0 ns WRITE: Bank = 0 Row =    1, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   70370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time   70430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   79810.0 ns ACT  : Bank = 1 Row =    1
+# Testbench_sdram.sdram0 : at time   79850.0 ns WRITE: Bank = 1 Row =    1, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   79870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time   79930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   89310.0 ns ACT  : Bank = 0 Row =    2
+# Testbench_sdram.sdram0 : at time   89350.0 ns WRITE: Bank = 0 Row =    2, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   89370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time   89430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time   98810.0 ns ACT  : Bank = 1 Row =    2
+# Testbench_sdram.sdram0 : at time   98850.0 ns WRITE: Bank = 1 Row =    2, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time   98870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time   98930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  108310.0 ns ACT  : Bank = 0 Row =    3
+# Testbench_sdram.sdram0 : at time  108350.0 ns WRITE: Bank = 0 Row =    3, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  108370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  108430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  117810.0 ns ACT  : Bank = 1 Row =    3
+# Testbench_sdram.sdram0 : at time  117850.0 ns WRITE: Bank = 1 Row =    3, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  117870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  117930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  127310.0 ns ACT  : Bank = 0 Row =    4
+# Testbench_sdram.sdram0 : at time  127350.0 ns WRITE: Bank = 0 Row =    4, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  127370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  127430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  136810.0 ns ACT  : Bank = 1 Row =    4
+# Testbench_sdram.sdram0 : at time  136850.0 ns WRITE: Bank = 1 Row =    4, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  136870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  136930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  146310.0 ns ACT  : Bank = 0 Row =    5
+# Testbench_sdram.sdram0 : at time  146350.0 ns WRITE: Bank = 0 Row =    5, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  146370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  146430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  155810.0 ns ACT  : Bank = 1 Row =    5
+# Testbench_sdram.sdram0 : at time  155850.0 ns WRITE: Bank = 1 Row =    5, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  155870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  155930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  165310.0 ns ACT  : Bank = 0 Row =    6
+# Testbench_sdram.sdram0 : at time  165350.0 ns WRITE: Bank = 0 Row =    6, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  165370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  165430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  174810.0 ns ACT  : Bank = 1 Row =    6
+# Testbench_sdram.sdram0 : at time  174850.0 ns WRITE: Bank = 1 Row =    6, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  174870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  174930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  184310.0 ns ACT  : Bank = 0 Row =    7
+# Testbench_sdram.sdram0 : at time  184350.0 ns WRITE: Bank = 0 Row =    7, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  184370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  184430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  193810.0 ns ACT  : Bank = 1 Row =    7
+# Testbench_sdram.sdram0 : at time  193850.0 ns WRITE: Bank = 1 Row =    7, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  193870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  193930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  203310.0 ns ACT  : Bank = 0 Row =    8
+# Testbench_sdram.sdram0 : at time  203350.0 ns WRITE: Bank = 0 Row =    8, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  203370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  203430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  212810.0 ns ACT  : Bank = 1 Row =    8
+# Testbench_sdram.sdram0 : at time  212850.0 ns WRITE: Bank = 1 Row =    8, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  212870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  212930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  222310.0 ns ACT  : Bank = 0 Row =    9
+# Testbench_sdram.sdram0 : at time  222350.0 ns WRITE: Bank = 0 Row =    9, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  222370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  222430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  231810.0 ns ACT  : Bank = 1 Row =    9
+# Testbench_sdram.sdram0 : at time  231850.0 ns WRITE: Bank = 1 Row =    9, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  231870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  231930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  241310.0 ns ACT  : Bank = 0 Row =   10
+# Testbench_sdram.sdram0 : at time  241350.0 ns WRITE: Bank = 0 Row =   10, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  241370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  241430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  250810.0 ns ACT  : Bank = 1 Row =   10
+# Testbench_sdram.sdram0 : at time  250850.0 ns WRITE: Bank = 1 Row =   10, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  250870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  250930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  260310.0 ns ACT  : Bank = 0 Row =   11
+# Testbench_sdram.sdram0 : at time  260350.0 ns WRITE: Bank = 0 Row =   11, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  260370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  260430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  269810.0 ns ACT  : Bank = 1 Row =   11
+# Testbench_sdram.sdram0 : at time  269850.0 ns WRITE: Bank = 1 Row =   11, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  269870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  269930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  279310.0 ns ACT  : Bank = 0 Row =   12
+# Testbench_sdram.sdram0 : at time  279350.0 ns WRITE: Bank = 0 Row =   12, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  279370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  279430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  288810.0 ns ACT  : Bank = 1 Row =   12
+# Testbench_sdram.sdram0 : at time  288850.0 ns WRITE: Bank = 1 Row =   12, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  288870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  288930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  298310.0 ns ACT  : Bank = 0 Row =   13
+# Testbench_sdram.sdram0 : at time  298350.0 ns WRITE: Bank = 0 Row =   13, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  298370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  298430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  307810.0 ns ACT  : Bank = 1 Row =   13
+# Testbench_sdram.sdram0 : at time  307850.0 ns WRITE: Bank = 1 Row =   13, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  307870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  307930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  317310.0 ns ACT  : Bank = 0 Row =   14
+# Testbench_sdram.sdram0 : at time  317350.0 ns WRITE: Bank = 0 Row =   14, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  317370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  317430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  326810.0 ns ACT  : Bank = 1 Row =   14
+# Testbench_sdram.sdram0 : at time  326850.0 ns WRITE: Bank = 1 Row =   14, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  326870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  326930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  336310.0 ns ACT  : Bank = 0 Row =   15
+# Testbench_sdram.sdram0 : at time  336350.0 ns WRITE: Bank = 0 Row =   15, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  336370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  336430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  345810.0 ns ACT  : Bank = 1 Row =   15
+# Testbench_sdram.sdram0 : at time  345850.0 ns WRITE: Bank = 1 Row =   15, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  345870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  345930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  355310.0 ns ACT  : Bank = 0 Row =   16
+# Testbench_sdram.sdram0 : at time  355350.0 ns WRITE: Bank = 0 Row =   16, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  355370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  355430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  364810.0 ns ACT  : Bank = 1 Row =   16
+# Testbench_sdram.sdram0 : at time  364850.0 ns WRITE: Bank = 1 Row =   16, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  364870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  364930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  374310.0 ns ACT  : Bank = 0 Row =   17
+# Testbench_sdram.sdram0 : at time  374350.0 ns WRITE: Bank = 0 Row =   17, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  374370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  374430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  383810.0 ns ACT  : Bank = 1 Row =   17
+# Testbench_sdram.sdram0 : at time  383850.0 ns WRITE: Bank = 1 Row =   17, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  383870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  383930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  393310.0 ns ACT  : Bank = 0 Row =   18
+# Testbench_sdram.sdram0 : at time  393350.0 ns WRITE: Bank = 0 Row =   18, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  393370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  393430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  402810.0 ns ACT  : Bank = 1 Row =   18
+# Testbench_sdram.sdram0 : at time  402850.0 ns WRITE: Bank = 1 Row =   18, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  402870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  402930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  412310.0 ns ACT  : Bank = 0 Row =   19
+# Testbench_sdram.sdram0 : at time  412350.0 ns WRITE: Bank = 0 Row =   19, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  412370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  412430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  421810.0 ns ACT  : Bank = 1 Row =   19
+# Testbench_sdram.sdram0 : at time  421850.0 ns WRITE: Bank = 1 Row =   19, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  421870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  421930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  431310.0 ns ACT  : Bank = 0 Row =   20
+# Testbench_sdram.sdram0 : at time  431350.0 ns WRITE: Bank = 0 Row =   20, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  431370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  431430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  440810.0 ns ACT  : Bank = 1 Row =   20
+# Testbench_sdram.sdram0 : at time  440850.0 ns WRITE: Bank = 1 Row =   20, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  440870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  440930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  450310.0 ns ACT  : Bank = 0 Row =   21
+# Testbench_sdram.sdram0 : at time  450350.0 ns WRITE: Bank = 0 Row =   21, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  450370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  450430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  459810.0 ns ACT  : Bank = 1 Row =   21
+# Testbench_sdram.sdram0 : at time  459850.0 ns WRITE: Bank = 1 Row =   21, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  459870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  459930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  469310.0 ns ACT  : Bank = 0 Row =   22
+# Testbench_sdram.sdram0 : at time  469350.0 ns WRITE: Bank = 0 Row =   22, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  469370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  469430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  478810.0 ns ACT  : Bank = 1 Row =   22
+# Testbench_sdram.sdram0 : at time  478850.0 ns WRITE: Bank = 1 Row =   22, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  478870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  478930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  488310.0 ns ACT  : Bank = 0 Row =   23
+# Testbench_sdram.sdram0 : at time  488350.0 ns WRITE: Bank = 0 Row =   23, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  488370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  488430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  497810.0 ns ACT  : Bank = 1 Row =   23
+# Testbench_sdram.sdram0 : at time  497850.0 ns WRITE: Bank = 1 Row =   23, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  497870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  497930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  507310.0 ns ACT  : Bank = 0 Row =   24
+# Testbench_sdram.sdram0 : at time  507350.0 ns WRITE: Bank = 0 Row =   24, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  507370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  507430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  516810.0 ns ACT  : Bank = 1 Row =   24
+# Testbench_sdram.sdram0 : at time  516850.0 ns WRITE: Bank = 1 Row =   24, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  516870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  516930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  526310.0 ns ACT  : Bank = 0 Row =   25
+# Testbench_sdram.sdram0 : at time  526350.0 ns WRITE: Bank = 0 Row =   25, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  526370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  526430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  535810.0 ns ACT  : Bank = 1 Row =   25
+# Testbench_sdram.sdram0 : at time  535850.0 ns WRITE: Bank = 1 Row =   25, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  535870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  535930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  545310.0 ns ACT  : Bank = 0 Row =   26
+# Testbench_sdram.sdram0 : at time  545350.0 ns WRITE: Bank = 0 Row =   26, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  545370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  545430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  554810.0 ns ACT  : Bank = 1 Row =   26
+# Testbench_sdram.sdram0 : at time  554850.0 ns WRITE: Bank = 1 Row =   26, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  554870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  554930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  564310.0 ns ACT  : Bank = 0 Row =   27
+# Testbench_sdram.sdram0 : at time  564350.0 ns WRITE: Bank = 0 Row =   27, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  564370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  564430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  573810.0 ns ACT  : Bank = 1 Row =   27
+# Testbench_sdram.sdram0 : at time  573850.0 ns WRITE: Bank = 1 Row =   27, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  573870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  573930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  583310.0 ns ACT  : Bank = 0 Row =   28
+# Testbench_sdram.sdram0 : at time  583350.0 ns WRITE: Bank = 0 Row =   28, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  583370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  583430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  592810.0 ns ACT  : Bank = 1 Row =   28
+# Testbench_sdram.sdram0 : at time  592850.0 ns WRITE: Bank = 1 Row =   28, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  592870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  592930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  602310.0 ns ACT  : Bank = 0 Row =   29
+# Testbench_sdram.sdram0 : at time  602350.0 ns WRITE: Bank = 0 Row =   29, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  602370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  602430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  611810.0 ns ACT  : Bank = 1 Row =   29
+# Testbench_sdram.sdram0 : at time  611850.0 ns WRITE: Bank = 1 Row =   29, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  611870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  611930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  621310.0 ns ACT  : Bank = 0 Row =   30
+# Testbench_sdram.sdram0 : at time  621350.0 ns WRITE: Bank = 0 Row =   30, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  621370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  621430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  630810.0 ns ACT  : Bank = 1 Row =   30
+# Testbench_sdram.sdram0 : at time  630850.0 ns WRITE: Bank = 1 Row =   30, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  630870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  630930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  640310.0 ns ACT  : Bank = 0 Row =   31
+# Testbench_sdram.sdram0 : at time  640350.0 ns WRITE: Bank = 0 Row =   31, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  640370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  640430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  649810.0 ns ACT  : Bank = 1 Row =   31
+# Testbench_sdram.sdram0 : at time  649850.0 ns WRITE: Bank = 1 Row =   31, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  649870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  649930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  659310.0 ns ACT  : Bank = 0 Row =   32
+# Testbench_sdram.sdram0 : at time  659350.0 ns WRITE: Bank = 0 Row =   32, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  659370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  659430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  668810.0 ns ACT  : Bank = 1 Row =   32
+# Testbench_sdram.sdram0 : at time  668850.0 ns WRITE: Bank = 1 Row =   32, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  668870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  668930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  678310.0 ns ACT  : Bank = 0 Row =   33
+# Testbench_sdram.sdram0 : at time  678350.0 ns WRITE: Bank = 0 Row =   33, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  678370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  678430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  687810.0 ns ACT  : Bank = 1 Row =   33
+# Testbench_sdram.sdram0 : at time  687850.0 ns WRITE: Bank = 1 Row =   33, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  687870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  687930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  697310.0 ns ACT  : Bank = 0 Row =   34
+# Testbench_sdram.sdram0 : at time  697350.0 ns WRITE: Bank = 0 Row =   34, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  697370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  697430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  706810.0 ns ACT  : Bank = 1 Row =   34
+# Testbench_sdram.sdram0 : at time  706850.0 ns WRITE: Bank = 1 Row =   34, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  706870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  706930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  716310.0 ns ACT  : Bank = 0 Row =   35
+# Testbench_sdram.sdram0 : at time  716350.0 ns WRITE: Bank = 0 Row =   35, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  716370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  716430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  725810.0 ns ACT  : Bank = 1 Row =   35
+# Testbench_sdram.sdram0 : at time  725850.0 ns WRITE: Bank = 1 Row =   35, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  725870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  725930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  735310.0 ns ACT  : Bank = 0 Row =   36
+# Testbench_sdram.sdram0 : at time  735350.0 ns WRITE: Bank = 0 Row =   36, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  735370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  735430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  744810.0 ns ACT  : Bank = 1 Row =   36
+# Testbench_sdram.sdram0 : at time  744850.0 ns WRITE: Bank = 1 Row =   36, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  744870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  744930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  754310.0 ns ACT  : Bank = 0 Row =   37
+# Testbench_sdram.sdram0 : at time  754350.0 ns WRITE: Bank = 0 Row =   37, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  754370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  754430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  763810.0 ns ACT  : Bank = 1 Row =   37
+# Testbench_sdram.sdram0 : at time  763850.0 ns WRITE: Bank = 1 Row =   37, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  763870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  763930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  773310.0 ns ACT  : Bank = 0 Row =   38
+# Testbench_sdram.sdram0 : at time  773350.0 ns WRITE: Bank = 0 Row =   38, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  773370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  773430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  782810.0 ns ACT  : Bank = 1 Row =   38
+# Testbench_sdram.sdram0 : at time  782850.0 ns WRITE: Bank = 1 Row =   38, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  782870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  782930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  792310.0 ns ACT  : Bank = 0 Row =   39
+# Testbench_sdram.sdram0 : at time  792350.0 ns WRITE: Bank = 0 Row =   39, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  792370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  792430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  801810.0 ns ACT  : Bank = 1 Row =   39
+# Testbench_sdram.sdram0 : at time  801850.0 ns WRITE: Bank = 1 Row =   39, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  801870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  801930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  811310.0 ns ACT  : Bank = 0 Row =   40
+# Testbench_sdram.sdram0 : at time  811350.0 ns WRITE: Bank = 0 Row =   40, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  811370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  811430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  820810.0 ns ACT  : Bank = 1 Row =   40
+# Testbench_sdram.sdram0 : at time  820850.0 ns WRITE: Bank = 1 Row =   40, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  820870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  820930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  830310.0 ns ACT  : Bank = 0 Row =   41
+# Testbench_sdram.sdram0 : at time  830350.0 ns WRITE: Bank = 0 Row =   41, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  830370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  830430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  839810.0 ns ACT  : Bank = 1 Row =   41
+# Testbench_sdram.sdram0 : at time  839850.0 ns WRITE: Bank = 1 Row =   41, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  839870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  839930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  849310.0 ns ACT  : Bank = 0 Row =   42
+# Testbench_sdram.sdram0 : at time  849350.0 ns WRITE: Bank = 0 Row =   42, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  849370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  849430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  858810.0 ns ACT  : Bank = 1 Row =   42
+# Testbench_sdram.sdram0 : at time  858850.0 ns WRITE: Bank = 1 Row =   42, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  858870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  858930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  868310.0 ns ACT  : Bank = 0 Row =   43
+# Testbench_sdram.sdram0 : at time  868350.0 ns WRITE: Bank = 0 Row =   43, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  868370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  868430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  877810.0 ns ACT  : Bank = 1 Row =   43
+# Testbench_sdram.sdram0 : at time  877850.0 ns WRITE: Bank = 1 Row =   43, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  877870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  877930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  887310.0 ns ACT  : Bank = 0 Row =   44
+# Testbench_sdram.sdram0 : at time  887350.0 ns WRITE: Bank = 0 Row =   44, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  887370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  887430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  896810.0 ns ACT  : Bank = 1 Row =   44
+# Testbench_sdram.sdram0 : at time  896850.0 ns WRITE: Bank = 1 Row =   44, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  896870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  896930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  906310.0 ns ACT  : Bank = 0 Row =   45
+# Testbench_sdram.sdram0 : at time  906350.0 ns WRITE: Bank = 0 Row =   45, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  906370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  906430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  915810.0 ns ACT  : Bank = 1 Row =   45
+# Testbench_sdram.sdram0 : at time  915850.0 ns WRITE: Bank = 1 Row =   45, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  915870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  915930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  925310.0 ns ACT  : Bank = 0 Row =   46
+# Testbench_sdram.sdram0 : at time  925350.0 ns WRITE: Bank = 0 Row =   46, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  925370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  925430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  934810.0 ns ACT  : Bank = 1 Row =   46
+# Testbench_sdram.sdram0 : at time  934850.0 ns WRITE: Bank = 1 Row =   46, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  934870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  934930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  944310.0 ns ACT  : Bank = 0 Row =   47
+# Testbench_sdram.sdram0 : at time  944350.0 ns WRITE: Bank = 0 Row =   47, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  944370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  944430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  953810.0 ns ACT  : Bank = 1 Row =   47
+# Testbench_sdram.sdram0 : at time  953850.0 ns WRITE: Bank = 1 Row =   47, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  953870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  953930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  963310.0 ns ACT  : Bank = 0 Row =   48
+# Testbench_sdram.sdram0 : at time  963350.0 ns WRITE: Bank = 0 Row =   48, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  963370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  963430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  972810.0 ns ACT  : Bank = 1 Row =   48
+# Testbench_sdram.sdram0 : at time  972850.0 ns WRITE: Bank = 1 Row =   48, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  972870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  972930.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  982310.0 ns ACT  : Bank = 0 Row =   49
+# Testbench_sdram.sdram0 : at time  982350.0 ns WRITE: Bank = 0 Row =   49, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  982370.0 ns NOTE : Start Internal Auto Precharge for Bank 0
+# Testbench_sdram.sdram0 : at time  982430.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time  991810.0 ns ACT  : Bank = 1 Row =   49
+# Testbench_sdram.sdram0 : at time  991850.0 ns WRITE: Bank = 1 Row =   49, Col =   0, Data = ff
+# Testbench_sdram.sdram0 : at time  991870.0 ns NOTE : Start Internal Auto Precharge for Bank 1
+# Testbench_sdram.sdram0 : at time  991930.0 ns AREF : Auto Refresh
+# End time: 11:22:47 on Jan 20,2022, Elapsed time: 0:38:11
+# Errors: 0, Warnings: 1

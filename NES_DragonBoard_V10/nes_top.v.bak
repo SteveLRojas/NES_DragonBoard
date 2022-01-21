@@ -1,0 +1,204 @@
+module nes_top
+(
+    input  wire       CLK_100MHZ,        // 100MHz system clock signal
+    input  wire       BTN_SOUTH,         // reset push button
+    input  wire       BTN_EAST,          // console reset
+    input  wire[3:0] SW,                // switches
+    input  wire       NES_JOYPAD_DATA1,  // joypad 1 input signal
+    input  wire       NES_JOYPAD_DATA2,  // joypad 2 input signal
+    output wire[3:0] LED,
+    output wire       VGA_HSYNC,         // vga hsync signal
+    output wire       VGA_VSYNC,         // vga vsync signal
+    output wire [2:0] VGA_RED,           // vga red signal
+    output wire [2:0] VGA_GREEN,         // vga green signal
+    output wire [1:0] VGA_BLUE,          // vga blue signal
+    output wire       NES_JOYPAD_CLK,    // joypad output clk signal
+    output wire       NES_JOYPAD_LATCH,  // joypad output latch signal
+    output wire       AUDIO,             // pwm output audio channel
+    output wire AUD_SD
+);
+assign AUD_SD = 1'b1;
+
+wire clk_25;
+clk_wiz_0 PLL_0(.clk_in1(CLK_100MHZ), .clk_out1(clk_25));
+
+reg[3:0] SW_s;
+reg[3:0] led_buf;
+wire[3:0] debug_led;
+always @(posedge clk_25)
+begin
+    SW_s <= SW;
+    led_buf <= debug_led;
+end
+assign LED = led_buf;
+
+//
+// RP2A03: Main processing chip including CPU, APU, joypad control, and sprite DMA control.
+//
+//wire        rp2a03_rdy;
+wire [ 7:0] rp2a03_din;
+wire        rp2a03_nnmi;
+wire [ 7:0] rp2a03_dout;
+wire [15:0] rp2a03_a;
+wire        rp2a03_r_nw;
+
+rp2a03 rp2a03_blk(
+    .clk_in(clk_25),
+    .rst_in(BTN_SOUTH),
+    .rdy_in(1'b1),
+    .d_in(rp2a03_din),
+    .nnmi_in(rp2a03_nnmi),
+    .nres_in(~BTN_EAST),
+    .d_out(rp2a03_dout),
+    .a_out(rp2a03_a),
+    .r_nw_out(rp2a03_r_nw),
+    .jp_data1_in(NES_JOYPAD_DATA1),
+    .jp_data2_in(NES_JOYPAD_DATA2),
+    .jp_clk(NES_JOYPAD_CLK),
+    .jp_latch(NES_JOYPAD_LATCH),
+    .mute_in(4'b0000),
+    .audio_out(AUDIO)
+);
+
+//
+// PPU: picture processing unit block.
+//
+wire [ 2:0] ppu_ri_sel;     // ppu register interface reg select
+wire        ppu_ri_ncs;     // ppu register interface enable
+wire        ppu_ri_r_nw;    // ppu register interface read/write select
+wire [ 7:0] ppu_ri_din;     // ppu register interface data input
+wire [ 7:0] ppu_ri_dout;    // ppu register interface data output
+
+wire [13:0] ppu_vram_a;     // ppu video ram address bus
+wire        ppu_vram_wr;    // ppu video ram read/write select
+wire [ 7:0] ppu_vram_din;   // ppu video ram data bus (input)
+wire [ 7:0] ppu_vram_dout;  // ppu video ram data bus (output)
+
+wire        ppu_nvbl;       // ppu /VBL signal.
+
+// PPU snoops the CPU address bus for register reads/writes.  Addresses 0x2000-0x2007
+// are mapped to the PPU register space, with every 8 bytes mirrored through 0x3FFF.
+assign ppu_ri_sel  = rp2a03_a[2:0];
+assign ppu_ri_ncs  = (rp2a03_a[15:13] == 3'b001) ? 1'b0 : 1'b1;
+assign ppu_ri_r_nw = rp2a03_r_nw;
+assign ppu_ri_din  = rp2a03_dout;
+
+//ppu ppu_blk(
+//  .clk_in(clk_25),
+//  .rst_in(BTN_SOUTH),
+//  .ri_sel_in(ppu_ri_sel),
+//  .ri_ncs_in(ppu_ri_ncs),
+//  .ri_r_nw_in(ppu_ri_r_nw),
+//  .ri_d_in(ppu_ri_din),
+//  .vram_d_in(ppu_vram_din),
+//  .hsync_out(VGA_HSYNC),
+//  .vsync_out(VGA_VSYNC),
+//  .r_out(VGA_RED),
+//  .g_out(VGA_GREEN),
+//  .b_out(VGA_BLUE),
+//  .ri_d_out(ppu_ri_dout),
+//  .nvbl_out(ppu_nvbl),
+//  .vram_a_out(ppu_vram_a),
+//  .vram_d_out(ppu_vram_dout),
+//  .vram_wr_out(ppu_vram_wr)
+//);
+
+PPU_gen2 ppu_blk(
+    .debug_in(SW_s),
+    .debug_out(debug_led),
+    .clk_in(clk_25),
+    .rst_in(BTN_SOUTH),
+    .ri_sel_in(ppu_ri_sel),
+    .ri_ncs_in(ppu_ri_ncs),
+    .ri_r_nw_in(ppu_ri_r_nw),
+    .ri_d_in(ppu_ri_din),
+    .vram_d_in(ppu_vram_din),
+    .hsync_out(VGA_HSYNC),
+    .vsync_out(VGA_VSYNC),
+    .r_out(VGA_RED),
+    .g_out(VGA_GREEN),
+    .b_out(VGA_BLUE),
+    .ri_d_out(ppu_ri_dout),
+    .nvbl_out(ppu_nvbl),
+    .vram_a_out(ppu_vram_a),
+    .vram_d_out(ppu_vram_dout),
+    .vram_wr_out(ppu_vram_wr)
+);
+
+//
+// CART: cartridge emulator
+//
+wire        cart_prg_nce;
+wire [ 7:0] cart_prg_dout;
+wire [ 7:0] cart_chr_dout;
+wire        cart_ciram_nce;
+wire        cart_ciram_a10;
+
+cart cart_blk(
+  .clk_in(clk_25),
+  .prg_nce_in(cart_prg_nce),
+  .prg_a_in(rp2a03_a[14:0]),
+  .prg_r_nw_in(rp2a03_r_nw),
+  .prg_d_in(rp2a03_dout),
+  .prg_d_out(cart_prg_dout),
+  .chr_a_in(ppu_vram_a),
+  .chr_r_nw_in(~ppu_vram_wr),
+  .chr_d_in(ppu_vram_dout),
+  .chr_d_out(cart_chr_dout),
+  .ciram_nce_out(cart_ciram_nce),
+  .ciram_a10_out(cart_ciram_a10)
+);
+
+//cart_02 cart_blk(
+//  .clk_in(clk_25),
+//  .prg_nce_in(cart_prg_nce),
+//  .prg_a_in(rp2a03_a[14:0]),
+//  .prg_r_nw_in(rp2a03_r_nw),
+//  .prg_d_in(rp2a03_dout),
+//  .prg_d_out(cart_prg_dout),
+//  .chr_a_in(ppu_vram_a),
+//  .chr_r_nw_in(~ppu_vram_wr),
+//  .chr_d_in(ppu_vram_dout),
+//  .chr_d_out(cart_chr_dout),
+//  .ciram_nce_out(cart_ciram_nce),
+//  .ciram_a10_out(cart_ciram_a10)
+//);
+
+assign cart_prg_nce = ~rp2a03_a[15];
+
+//
+// VRAM: internal video ram
+//
+wire [10:0] vram_a;
+wire [ 7:0] vram_dout;
+assign vram_a = { cart_ciram_a10, ppu_vram_a[9:0] };
+
+vram vram_blk(
+  .clka(clk_25),
+  .ena(~cart_ciram_nce),
+  .wea(ppu_vram_wr),
+  .addra(vram_a),
+  .dina(ppu_vram_dout),
+  .douta(vram_dout)
+);
+
+//
+// WRAM: internal work ram
+//
+wire       wram_en;
+wire [7:0] wram_dout;
+
+wram wram_blk(
+  .clka(clk_25),
+  .wea(wram_en && ~rp2a03_r_nw),
+  .addra(rp2a03_a[10:0]),
+  .dina(rp2a03_dout),
+  .douta(wram_dout)
+);
+
+assign wram_en = (rp2a03_a[15:13] == 0);
+assign rp2a03_din  = cart_prg_dout | (wram_dout & {8{wram_en}}) | ppu_ri_dout;
+assign ppu_vram_din     = cart_chr_dout | (vram_dout & {8{~cart_ciram_nce}});
+assign rp2a03_nnmi = ppu_nvbl;
+
+endmodule

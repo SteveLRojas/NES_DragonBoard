@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Jan 20 17:04:26 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : NES_DragonBoard
+Top-level Entity Name : NES_DragonBoard
+Family : Cyclone IV E
+Total logic elements : 3,555
+    Total combinational functions : 3,325
+    Dedicated logic registers : 1,335
+Total registers : 1335
+Total pins : 54
+Total virtual pins : 0
+Total memory bits : 100,800
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1
