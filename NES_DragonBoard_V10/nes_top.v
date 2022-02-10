@@ -33,13 +33,10 @@ module NES_DragonBoard(
 		inout wire i2c_sda,
 		inout wire i2c_scl);
 
-wire jp_clk;
 wire jp_latch;
 
 assign jp_latch1 = ~jp_latch;
 assign jp_latch2 = ~jp_latch;
-assign jp_clk1 = ~jp_clk;
-assign jp_clk2 = ~jp_clk;
 
 wire clk_25;
 wire clk_50;
@@ -60,9 +57,9 @@ end
 //
 // RP2A03: Main processing chip including CPU, APU, joypad control, and sprite DMA control.
 //
-wire [ 7:0] rp2a03_din;
+wire [ 7:0] to_cpu;
 wire        rp2a03_nnmi;
-wire [ 7:0] rp2a03_dout;
+wire [ 7:0] from_cpu;
 wire [15:0] rp2a03_a;
 wire        rp2a03_r_nw;
 wire cpu_reset;
@@ -73,16 +70,17 @@ rp2a03 rp2a03_blk(
     //.rst_in(~reset_s | ~button_s[0]),
 	 .rst_in(cpu_reset | ~button_s[0]),
     .rdy_in(button_s[1]),
-    .d_in(rp2a03_din),
+    .d_in(to_cpu),
     .nnmi_in(rp2a03_nnmi),
-    .d_out(rp2a03_dout),
+    .d_out(from_cpu),
     .a_out(rp2a03_a),
     .r_nw_out(rp2a03_r_nw),
     .jp_data1_in(jp_data1_s),
     .jp_data2_in(jp_data2_s),
-    .jp_clk(jp_clk),
+    .jp1_clk(jp_clk1),
+	 .jp2_clk(jp_clk2),
     .jp_latch(jp_latch),
-    .mute_in(4'b0000),
+    //.mute_in(4'b0000),
     .audio_out(AUDIO)
 );
 
@@ -92,7 +90,7 @@ rp2a03 rp2a03_blk(
 wire [ 2:0] ppu_ri_sel;     // ppu register interface reg select
 wire        ppu_ri_ncs;     // ppu register interface enable
 wire        ppu_ri_r_nw;    // ppu register interface read/write select
-wire [ 7:0] ppu_ri_din;     // ppu register interface data input
+//wire [ 7:0] ppu_ri_din;     // ppu register interface data input
 wire [ 7:0] ppu_ri_dout;    // ppu register interface data output
 
 wire [13:0] ppu_vram_a;     // ppu video ram address bus
@@ -105,11 +103,12 @@ wire        ppu_nvbl;       // ppu /VBL signal.
 // PPU snoops the CPU address bus for register reads/writes.  Addresses 0x2000-0x2007
 // are mapped to the PPU register space, with every 8 bytes mirrored through 0x3FFF.
 assign ppu_ri_sel  = rp2a03_a[2:0];
-assign ppu_ri_ncs  = (rp2a03_a[15:13] == 3'b001) ? 1'b0 : 1'b1;
+//assign ppu_ri_ncs  = (rp2a03_a[15:13] == 3'b001) ? 1'b0 : 1'b1;
+assign ppu_ri_ncs = ~(rp2a03_a[15:13] == 3'b001);
 assign ppu_ri_r_nw = rp2a03_r_nw;
-assign ppu_ri_din  = rp2a03_dout;
+//assign ppu_ri_din  = rp2a03_dout;
 
-PPU_gen2 ppu_blk(
+PPU_gen2 ppu_inst(
     .debug_in({button_s[3], button_s[2]}),
     .debug_out(LED[2:0]),
     .clk_in(clk_25),
@@ -117,7 +116,7 @@ PPU_gen2 ppu_blk(
     .ri_sel_in(ppu_ri_sel),
     .ri_ncs_in(ppu_ri_ncs),
     .ri_r_nw_in(ppu_ri_r_nw),
-    .ri_d_in(ppu_ri_din),
+    .ri_d_in(from_cpu),
     .vram_d_in(ppu_vram_din),
     .hsync_out(VGA_HSYNC),
     .vsync_out(VGA_VSYNC),
@@ -155,7 +154,7 @@ wire        cart_ciram_a10;
 //  .ciram_a10_out(cart_ciram_a10)
 //);
 
-cart_02 cart_blk(
+cart_02 cart_inst(
 		.clk_sys(clk_25),	// system clock signal
 		.clk_sdram(clk_50),
 		.rst(~reset_s),
@@ -164,7 +163,7 @@ cart_02 cart_blk(
 		.prg_nce_in(cart_prg_nce),
 		.prg_a_in(rp2a03_a[14:0]),
 		.prg_r_nw_in(rp2a03_r_nw),
-		.prg_d_in(rp2a03_dout),
+		.prg_d_in(from_cpu),
 		.prg_d_out(cart_prg_dout),
 		// CHR RAM interface:
 		.chr_a_in(ppu_vram_a),
@@ -209,17 +208,18 @@ vram vram_inst(
 //
 wire       wram_en;
 wire [7:0] wram_dout;
+assign wram_en = (rp2a03_a[15:13] == 0);
 
 wram wram_inst(
 	.address(rp2a03_a[10:0]),
 	.clock(clk_25),
-	.data(rp2a03_dout),
+	.data(from_cpu),
 	.rden(wram_en),
 	.wren(wram_en && ~rp2a03_r_nw),
 	.q(wram_dout));
 
-assign wram_en = (rp2a03_a[15:13] == 0);
-assign rp2a03_din = cart_prg_dout | (wram_dout & {8{wram_en}}) | ppu_ri_dout;
+
+assign to_cpu = cart_prg_dout | (wram_dout & {8{wram_en}}) | ppu_ri_dout;
 assign ppu_vram_din = cart_chr_dout | (vram_dout & {8{~cart_ciram_nce}});
 assign rp2a03_nnmi = ppu_nvbl;
 

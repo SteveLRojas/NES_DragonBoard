@@ -25,15 +25,12 @@
 *  APU noise channel.
 ***************************************************************************************************/
 
-module apu_pulse
-#(
-  parameter [0:0] CHANNEL = 1'b0         // Pulse channel 0 or 1
-)
-(
+module apu_pulse_test(
   input  wire       clk_in,              // system clock signal
   input  wire       rst_in,              // reset signal
   input  wire       en_in,               // enable (via $4015)
   input  wire       cpu_cycle_pulse_in,  // 1 clk pulse on every cpu cycle
+  input logic apu_clk,
   input  wire       lc_pulse_in,         // 1 clk pulse for every length counter decrement
   input  wire       eg_pulse_in,         // 1 clk pulse for every env gen update
   input  wire [1:0] a_in,                // control register addr (i.e. $4000 - $4003)
@@ -43,6 +40,16 @@ module apu_pulse
   output wire       active_out           // pulse channel active (length counter > 0)
 );
 
+wire clk;
+wire rst;
+wire wren;
+wire[7:0] from_cpu;
+wire l_pulse;
+assign l_pulse = lc_pulse_in;
+assign from_cpu = d_in;
+assign wren = wr_in;
+assign clk = clk_in;
+assign rst = rst_in;
 //
 // Envelope
 //
@@ -66,122 +73,103 @@ assign envelope_generator_restart = wr_in && (a_in == 2'b11);
 //
 // Timer
 //
-reg  [10:0] q_timer_period, d_timer_period;
-wire        timer_pulse;
 
-always @(posedge clk_in)
-  begin
-    if (rst_in)
-      q_timer_period <= 11'h000;
-    else
-      q_timer_period <= d_timer_period;
-  end
+	logic[10:0] timer_period;
+	//reg  [10:0] q_timer_period, d_timer_period;
+	logic[10:0] timer_count;
+	logic timer_pulse;
+	
+	logic[1:0] duty;
+	logic[2:0] sequencer_cnt;
+	logic seq_bit;
+	wire [3:0] sequencer_out;
+	
+	logic sweep_reload;
+	logic[7:0] from_cpu_hold;
+	logic[2:0] sweep_count;
+	logic sweep_pulse;
+	logic sweep_silence;
+	logic[11:0] sweep_target_period;
+	
+	assign timer_pulse = apu_clk & (timer_count == 11'h000);
+	assign sweep_pulse = l_pulse & (sweep_count == 3'h0);
+	
+	always_ff @(posedge clk)
+	begin
+		if(rst)
+		begin
+			timer_period <= 11'h000;
+			timer_count <= 11'h000;
+			duty <= 2'h0;
+			sequencer_cnt <= 3'h0;
+			sweep_reload <= 1'b0;
+			from_cpu_hold <= 8'h00;
+		end
+		else
+		begin
+			//timer
+			if(apu_clk)
+			begin
+				if(timer_count)
+					timer_count <= timer_count - 11'h001;
+				else
+					timer_count <= timer_period;
+			end
+			
+			//sequencer
+			if(wren && (a_in == 2'b00))
+				duty <= from_cpu[7:6];
 
-apu_div #(.PERIOD_BITS(12)) timer(
-  .clk_in(clk_in),
-  .rst_in(rst_in),
-  .pulse_in(cpu_cycle_pulse_in),
-  .reload_in(1'b0),
-  .period_in({ q_timer_period, 1'b0 }),
-  .pulse_out(timer_pulse)
-);
-
-//
-// Sequencer
-//
-wire [3:0] sequencer_out;
-
-reg  [1:0] q_duty;
-wire [1:0] d_duty;
-
-reg  [2:0] q_sequencer_cnt;
-wire [2:0] d_sequencer_cnt;
-
-wire       seq_bit;
-
-always @(posedge clk_in)
-  begin
-    if (rst_in)
-      begin
-        q_duty          <= 2'h0;
-        q_sequencer_cnt <= 3'h0;
-      end
-    else
-      begin
-        q_duty          <= d_duty;
-        q_sequencer_cnt <= d_sequencer_cnt;
-      end
-  end
-
-assign d_duty          = (wr_in && (a_in == 2'b00)) ? d_in[7:6] : q_duty;
-assign d_sequencer_cnt = (timer_pulse) ? q_sequencer_cnt - 3'h1 : q_sequencer_cnt;
-
-assign seq_bit         = (q_duty == 2'h0) ? &q_sequencer_cnt[2:0] :
-                         (q_duty == 2'h1) ? &q_sequencer_cnt[2:1] :
-                         (q_duty == 2'h2) ? q_sequencer_cnt[2]    : ~&q_sequencer_cnt[2:1];
-
-assign sequencer_out   = (seq_bit) ? envelope_generator_out : 4'h0;
-
-//
-// Sweep
-//
-reg        q_sweep_reload;
-wire       d_sweep_reload;
-reg  [7:0] q_sweep_reg;
-wire [7:0] d_sweep_reg;
-
-always @(posedge clk_in)
-  begin
-    if (rst_in)
-      begin
-        q_sweep_reg    <= 8'h00;
-        q_sweep_reload <= 1'b0;
-      end
-    else
-      begin
-        q_sweep_reg    <= d_sweep_reg;
-        q_sweep_reload <= d_sweep_reload;
-      end
-  end
-
-assign d_sweep_reg    = (wr_in && (a_in == 2'b01)) ? d_in : q_sweep_reg;
-assign d_sweep_reload = (wr_in && (a_in == 2'b01)) ? 1'b1 :
-                        (lc_pulse_in)              ? 1'b0 : q_sweep_reload;
-
-wire sweep_divider_reload;
-wire sweep_divider_pulse;
-
-reg        sweep_silence;
-reg [11:0] sweep_target_period;
-
-apu_div #(.PERIOD_BITS(3)) sweep_divider(
-  .clk_in(clk_in),
-  .rst_in(rst_in),
-  .pulse_in(lc_pulse_in),
-  .reload_in(sweep_divider_reload),
-  .period_in(q_sweep_reg[6:4]),
-  .pulse_out(sweep_divider_pulse)
-);
-
-assign sweep_divider_reload = lc_pulse_in & q_sweep_reload;
-
-always @*
-  begin
-    sweep_target_period =
-      (!q_sweep_reg[3]) ? q_timer_period + (q_timer_period >> q_sweep_reg[2:0]) :
-                          q_timer_period + ~(q_timer_period >> q_sweep_reg[2:0]) + CHANNEL;
-
-    sweep_silence = (q_timer_period[10:3] == 8'h00) || sweep_target_period[11];
-
-    if (wr_in && (a_in == 2'b10))
-      d_timer_period = { q_timer_period[10:8], d_in };
-    else if (wr_in && (a_in == 2'b11))
-      d_timer_period = { d_in[2:0], q_timer_period[7:0] };
-    else if (sweep_divider_pulse && q_sweep_reg[7] && !sweep_silence && (q_sweep_reg[2:0] != 3'h0))
-      d_timer_period = sweep_target_period[10:0];
-    else
-      d_timer_period = q_timer_period;
-  end
+			if(timer_pulse)
+				sequencer_cnt <= sequencer_cnt - 3'h1;
+				
+			//sweep
+			if(wren && (a_in == 2'b01))
+			begin
+				from_cpu_hold <= from_cpu;
+				sweep_reload <= 1'b1;
+			end
+			else if(l_pulse)
+			begin
+				sweep_reload <= 1'b0;
+			end
+			
+			if(l_pulse)
+			begin
+				sweep_count <= sweep_count - 3'h1;
+				if(sweep_reload || (sweep_count == 3'h0))
+					sweep_count <= from_cpu_hold[6:4];
+			end
+			
+			if(wren && (a_in == 2'b10))
+				timer_period[7:0] <= from_cpu;
+			if(wren && (a_in == 2'b11))
+				timer_period[10:8] <= from_cpu[2:0];
+			
+			if(sweep_pulse && from_cpu_hold[7] && !sweep_silence && (from_cpu_hold[2:0] != 3'h0))
+				timer_period <= sweep_target_period[10:0];
+		end
+	end
+	
+	always_comb
+	begin
+		//sequencer
+		unique case(duty)
+			2'h0: seq_bit = &sequencer_cnt[2:0];
+			2'h1: seq_bit = &sequencer_cnt[2:1];
+			2'h2: seq_bit = sequencer_cnt[2];
+			2'h3: seq_bit = ~&sequencer_cnt[2:1];
+		endcase
+		sequencer_out   = (seq_bit) ? envelope_generator_out : 4'h0;
+		
+		//sweep
+		if(~from_cpu_hold[3])
+			sweep_target_period = timer_period + (timer_period >> from_cpu_hold[2:0]);
+		else
+			sweep_target_period = timer_period + ~(timer_period >> from_cpu_hold[2:0]);
+			
+		sweep_silence = (timer_period[10:3] == 8'h00) || sweep_target_period[11];
+	end
 
 //
 // Length Counter

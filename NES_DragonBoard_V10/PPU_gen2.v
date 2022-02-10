@@ -542,7 +542,8 @@ begin
             end
             else
             begin
-                {next_v_name, next_v_tile, next_v_fine} = {v_name, v_tile, v_fine} + 9'h001;
+                //{next_v_name, next_v_tile, next_v_fine} = {v_name, v_tile, v_fine} + 9'h001;
+					 {next_v_tile, next_v_fine} = {v_tile, v_fine} + 8'h01;
             end
         end
         if(inc_h_count)
@@ -1238,8 +1239,8 @@ begin
         6'h23:  rgb_reg <= 6'o67;
         6'h24:  rgb_reg <= 6'o63;
         6'h25:  rgb_reg <= 6'o73;
-        6'h26:  rgb_reg <= 6'o74;
-        6'h27:  rgb_reg <= 6'o70;
+        6'h26:  rgb_reg <= 6'o70;
+        6'h27:  rgb_reg <= 6'o71;
 		  
         6'h28:  rgb_reg <= 6'o74;
         6'h29:  rgb_reg <= 6'o54;
@@ -1256,7 +1257,7 @@ begin
         6'h33:  rgb_reg <= 6'o66;
         6'h34:  rgb_reg <= 6'o46;
         6'h35:  rgb_reg <= 6'o72;
-        6'h36:  rgb_reg <= 6'o76;
+        6'h36:  rgb_reg <= 6'o74;
         6'h37:  rgb_reg <= 6'o75;
 		  
         6'h38:  rgb_reg <= 6'o76;

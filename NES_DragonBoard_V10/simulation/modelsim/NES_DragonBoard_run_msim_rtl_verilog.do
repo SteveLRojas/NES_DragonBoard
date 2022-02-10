@@ -9,7 +9,6 @@ vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard
 vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/nes_top.v}
 vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/sprdma.v}
 vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/rp2a03.v}
-vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/jp.v}
 vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/cpu.v}
 vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v}
 vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v}
@@ -29,6 +28,7 @@ vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/db {E:/NES_DragonBo
 vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/eeprom.sv}
 vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv}
 vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/I2C_phy.sv}
+vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/joypad.sv}
 
 vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cart {E:/NES_DragonBoard_V10/cart/cart_02.v}
 vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu.v}

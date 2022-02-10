@@ -35,47 +35,47 @@ module rp2a03
   input  wire        rdy_in,         // ready signal
   input  wire [ 7:0] d_in,           // data input bus
   input  wire        nnmi_in,        // /nmi interrupt signal (active low)
-  //input  wire        nres_in,        // /res interrupt signal (active low)
   output wire [ 7:0] d_out,          // data output bus
   output wire [15:0] a_out,          // address bus
   output wire        r_nw_out,       // read/write select (write low)
-//  output wire        brk_out,        // debug break signal
 
   // Joypad signals.
   input  wire        jp_data1_in,    // joypad 1 input signal
   input  wire        jp_data2_in,    // joypad 2 input signal
-  output wire        jp_clk,         // joypad output clk signal
+  output wire        jp1_clk,         // joypad output clk signal
+  output wire			jp2_clk,
   output wire        jp_latch,       // joypad output latch signal
 
   // Audio signals.
-  input  wire [ 3:0] mute_in,        // disable audio channels
   output wire        audio_out      // pwm audio output
 );
 
-reg[2:0] horiz_scaler;
-wire horiz_advance;
+reg[5:0] clk_count;
+wire cpu_clk;
+
 always @(posedge clk_in)
 begin
     if(rst_in)
     begin
-        horiz_scaler <= 3'b000;
+        clk_count <= 6'h00;
     end
     else
     begin
-        if(horiz_scaler == 3'b100)
-			horiz_scaler <= 3'b000;
-		else
-			horiz_scaler <= horiz_scaler + 3'b001;
+		if(clk_count == 6'd13)
+            clk_count <= 6'h00;
+        else
+            clk_count <= clk_count + 6'h01;
     end
 end
-assign horiz_advance = (horiz_scaler == 3'b000) | (horiz_scaler == 3'b010);
+
+assign cpu_clk = (clk_count == 6'h00);
 
 //
 // CPU: central processing unit block.
 //
 wire        cpu_ready;
 wire [ 7:0] cpu_din;
-wire        cpu_nirq;
+wire        apu_irq;
 wire [ 7:0] cpu_dout;
 wire [15:0] cpu_a;
 wire        cpu_r_nw;
@@ -86,46 +86,52 @@ cpu cpu_blk(
   .ready_in(cpu_ready),
   .d_in(cpu_din),
   .nnmi_in(nnmi_in),
-  //.nres_in(nres_in),
-  .nirq_in(cpu_nirq),
+  .nirq_in(~apu_irq),
   .d_out(cpu_dout),
   .a_out(cpu_a),
-  .r_nw_out(cpu_r_nw)
-);
+  .r_nw_out(cpu_r_nw));
 
 //
 // APU: audio processing unit block.
 //
 wire [7:0] audio_dout;
 
-apu apu_blk(
-  .clk_in(clk_in),
-  .rst_in(rst_in),
-  .mute_in(mute_in),
+//apu apu_blk(
+//  .clk_in(clk_in),
+//  .rst_in(rst_in),
+//  .a_in(cpu_a),
+//  .d_in(cpu_dout),
+//  .r_nw_in(cpu_r_nw),
+//  .audio_out(audio_out),
+//  .d_out(audio_dout)
+//);
+apu_gen2 apu_inst(
+  .clk(clk_in),
+  .cpu_clk(cpu_clk),
+  .rst(rst_in),
   .a_in(cpu_a),
-  .d_in(cpu_dout),
-  .r_nw_in(cpu_r_nw),
+  .from_cpu(cpu_dout),
+  .r_nw(cpu_r_nw),
   .audio_out(audio_out),
-  .d_out(audio_dout)
-);
+  .to_cpu(audio_dout),
+  .irq(apu_irq));
 
 //
 // JP: joypad controller block.
 //
 wire [7:0] jp_dout;
 
-jp jp_blk(
-  .clk(clk_in),
-  .rst(rst_in),
-  .wr(~cpu_r_nw),
-  .addr(cpu_a),
-  .din(cpu_dout[0]),
-  .jp_data1(jp_data1_in),
-  .jp_data2(jp_data2_in),
-  .jp_clk(jp_clk),
-  .jp_latch(jp_latch),
-  .dout(jp_dout)
-);
+joypad jp_inst(
+		.clk(clk_in),
+		.wren(~cpu_r_nw),
+		.addr(cpu_a),
+		.from_cpu(cpu_dout[0]),
+		.jp1_data(jp_data1_in),
+		.jp2_data(jp_data2_in),
+		.jp1_clk(jp1_clk),
+		.jp2_clk(jp2_clk),
+		.jp_latch(jp_latch),
+		.to_cpu(jp_dout));
 
 //
 // SPRDMA: sprite dma controller block.
@@ -135,23 +141,37 @@ wire [15:0] sprdma_a;
 wire [ 7:0] sprdma_dout;
 wire        sprdma_r_nw;
 
-sprdma sprdma_blk(
-    .horiz_advance(horiz_advance),
-    .clk_in(clk_in),
-    .rst_in(rst_in),
-    .cpumc_a_in(cpu_a),
-    .cpumc_din_in(cpu_dout),
-    .cpumc_dout_in(cpu_din),
-    .cpu_r_nw_in(cpu_r_nw),
-    .active_out(sprdma_active),
-    .cpumc_a_out(sprdma_a),
-    .cpumc_d_out(sprdma_dout),
-    .cpumc_r_nw_out(sprdma_r_nw)
-);
+//sprdma sprdma_blk(
+//    .horiz_advance(horiz_advance),
+//    .clk_in(clk_in),
+//    .rst_in(rst_in),
+//    .cpumc_a_in(cpu_a),
+//    .cpumc_din_in(cpu_dout),
+//    .cpumc_dout_in(cpu_din),
+//    .cpu_r_nw_in(cpu_r_nw),
+//    .active_out(sprdma_active),
+//    .cpumc_a_out(sprdma_a),
+//    .cpumc_d_out(sprdma_dout),
+//    .cpumc_r_nw_out(sprdma_r_nw)
+//);
+rp2a03_dma dma_inst(
+		.clk(clk_in),
+		.cpu_clk(cpu_clk),
+		.rst(rst_in),
+		.spr_trig(cpu_a == 16'h4014 && !cpu_r_nw),		// Sprite DMA trigger
+		.dmc_trig(1'b0),		// DMC DMA trigger
+		.cpu_r_nw(cpu_r_nw),		// CPU is in a read cycle
+		.from_cpu(cpu_dout),		// Data written by CPU
+		.from_ram(d_in),		// Data read from RAM
+		.dmc_dma_addr(16'hxxxx),		// DMC DMA Address
+		.a_out(sprdma_a),		// Address to access
+		.dma_active(sprdma_active),		// DMA controller wants bus control
+		.dma_r_nw(sprdma_r_nw),		// 1 = read, 0 = write
+		.to_ram(sprdma_dout),		// Value to write to RAM
+		.dmc_ack());		// ACK the DMC DMA
 
 assign cpu_ready = rdy_in & !sprdma_active;
 assign cpu_din   = d_in | jp_dout | audio_dout;
-assign cpu_nirq  = 1'b1;
 
 assign d_out     = (sprdma_active) ? sprdma_dout : cpu_dout;
 assign a_out     = (sprdma_active) ? sprdma_a    : cpu_a;

@@ -47,12 +47,12 @@ wire       envelope_generator_wr;
 wire       envelope_generator_restart;
 wire [3:0] envelope_generator_out;
 
-apu_envelope_generator envelope_generator(
-  .clk_in(clk_in),
-  .rst_in(rst_in),
-  .eg_pulse_in(eg_pulse_in),
-  .env_in(d_in[5:0]),
-  .env_wr_in(envelope_generator_wr),
+apu_envelope_generator_gen2 envelope_generator(
+  .clk(clk_in),
+  .rst(rst_in),
+  .clk_en(eg_pulse_in),
+  .from_cpu(d_in[5:0]),
+  .env_wren(envelope_generator_wr),
   .env_restart(envelope_generator_restart),
   .env_out(envelope_generator_out)
 );
@@ -148,16 +148,25 @@ assign d_length_counter_halt = (wr_in && (a_in == 2'b00)) ? d_in[5] : q_length_c
 wire length_counter_wr;
 wire length_counter_en;
 
-apu_length_counter length_counter(
-  .clk_in(clk_in),
-  .rst_in(rst_in),
-  .en_in(en_in),
-  .halt_in(q_length_counter_halt),
-  .length_pulse_in(lc_pulse_in),
-  .length_in(d_in[7:3]),
-  .length_wr_in(length_counter_wr),
-  .en_out(length_counter_en)
-);
+//apu_length_counter length_counter(
+//  .clk_in(clk_in),
+//  .rst_in(rst_in),
+//  .en_in(en_in),
+//  .halt_in(q_length_counter_halt),
+//  .length_pulse_in(lc_pulse_in),
+//  .length_in(d_in[7:3]),
+//  .length_wr_in(length_counter_wr),
+//  .en_out(length_counter_en)
+//);
+apu_length_counter_gen2 length_counter_inst(
+		.clk(clk_in),
+		.rst(rst_in),
+		.length_en(en_in),
+		.length_halt(q_length_counter_halt),
+		.l_pulse(lc_pulse_in),
+		.from_cpu(d_in[7:3]),
+		.length_wren(length_counter_wr),
+		.active_out(length_counter_en));
 
 assign length_counter_wr = wr_in && (a_in == 2'b11);
 

@@ -126,16 +126,25 @@ always @(posedge clk_in)
       q_length_counter_halt <= d_length_counter_halt;
   end
 
-apu_length_counter length_counter(
-  .clk_in(clk_in),
-  .rst_in(rst_in),
-  .en_in(en_in),
-  .halt_in(q_length_counter_halt),
-  .length_pulse_in(lc_pulse_in),
-  .length_in(d_in[7:3]),
-  .length_wr_in(length_counter_wr),
-  .en_out(length_counter_en)
-);
+//apu_length_counter length_counter(
+//  .clk_in(clk_in),
+//  .rst_in(rst_in),
+//  .en_in(en_in),
+//  .halt_in(q_length_counter_halt),
+//  .length_pulse_in(lc_pulse_in),
+//  .length_in(d_in[7:3]),
+//  .length_wr_in(length_counter_wr),
+//  .en_out(length_counter_en)
+//);
+apu_length_counter_gen2 length_counter(
+		.clk(clk_in),
+		.rst(rst_in),
+		.length_en(en_in),
+		.length_halt(q_length_counter_halt),
+		.l_pulse(lc_pulse_in),
+		.from_cpu(d_in[7:3]),
+		.length_wren(length_counter_wr),
+		.active_out(length_counter_en));
 
 assign d_length_counter_halt = (wr_in && (a_in == 2'b00)) ? d_in[7] : q_length_counter_halt;
 assign length_counter_wr     = wr_in && (a_in == 2'b11);

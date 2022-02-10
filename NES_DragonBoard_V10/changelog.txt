@@ -32,3 +32,18 @@ Created I2C_EEPROM module.
 Added I2C_phy module.
 Modified cart_02 module to use SDRAM and EEPROM memories.
 Created new testbench for SDRAM and I2C debugging.
+
+Revision 7:
+Created new joypad module.
+Simplified APU clock divider.
+Tweaked PPU palette.
+Created new APU frame counter module.
+Created new envelope generator module.
+Created new apu_pulse module.
+Created new apu_length_counter.
+Created new mixer module.
+Created new DMA module.
+Created new APU module.
+Fixed bug in DMA module.
+Fixed bug in PPU (v_tile overflow should not toggle v_name).
+Found bug in CPU (crash on IRQ). 
