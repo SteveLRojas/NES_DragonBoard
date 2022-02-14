@@ -46,4 +46,22 @@ Created new DMA module.
 Created new APU module.
 Fixed bug in DMA module.
 Fixed bug in PPU (v_tile overflow should not toggle v_name).
-Found bug in CPU (crash on IRQ). 
+Found bug in CPU (crash on IRQ).
+Created DMC module.
+Fixed bug in DMA module.
+Replaced CPU module with T65.
+Created mapper 71 cart.
+
+Revision 8:
+Created new mapper 0 module.
+
+Tested games by mapper:
+Mapper 0:
+	Galaxian: working.
+	Super Mario Bros: working, minor glitching in score bar.
+Mapper 2:
+	Contra: working.
+	DuckTales: working.
+Mapper 71:
+	Fire Hawk: intro is glitched, not playable.
+	Dizzy the Adventurer: working.

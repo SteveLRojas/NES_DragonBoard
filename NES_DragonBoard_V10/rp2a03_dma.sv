@@ -10,11 +10,12 @@ module rp2a03_dma(
 		input logic[15:0] dmc_dma_addr,		// DMC DMA Address
 		output logic[15:0] a_out,		// Address to access
 		output logic dma_active,		// DMA controller wants bus control
+		output logic cpu_ready,		// low to pause CPU
 		output logic dma_r_nw,		// 1 = read, 0 = write
 		output logic[7:0] to_ram,		// Value to write to RAM
 		output logic dmc_ack);		// ACK the DMC DMA
 
-	enum logic[2:0] {S_READY, S_SPR_READ, S_SPR_WRITE, S_DMC_READ, S_DMC_READ_INT, S_DONE} state;
+	enum logic[2:0] {S_READY, S_SPR_READ, S_SPR_WRITE, S_DMC_WAIT, S_DMC_READ, S_DMC_READ_INT, S_DONE} state;
 	logic[15:0] spr_address;
 	logic[7:0] spr_data;
 	
@@ -35,7 +36,7 @@ module rp2a03_dma(
 						if(spr_trig)
 							state <= S_SPR_READ;
 						if(dmc_trig)
-							state <= S_DMC_READ;
+							state <= S_DMC_WAIT;
 						spr_address[15:8] <= from_cpu;
 						spr_address[7:0] <= 8'h00;
 					end
@@ -61,6 +62,11 @@ module rp2a03_dma(
 						end
 						spr_address[7:0] <= spr_address[7:0] + 8'h01;
 					end
+					S_DMC_WAIT:
+					begin
+						if(cpu_r_nw)
+							state <= S_DMC_READ;
+					end
 					S_DMC_READ:
 					begin
 						state <= S_DONE;
@@ -83,6 +89,7 @@ module rp2a03_dma(
 				begin
 					a_out <= 16'hxxxx;
 					dma_active <= 1'b0;
+					cpu_ready <= 1'b1;
 					dma_r_nw <= 1'b1;
 					dmc_ack <= 1'b0;
 				end
@@ -90,6 +97,7 @@ module rp2a03_dma(
 				begin
 					a_out <= spr_address;
 					dma_active <= 1'b1;
+					cpu_ready <= 1'b0;
 					dma_r_nw <= 1'b1;
 					dmc_ack <= 1'b0;
 					spr_data <= from_ram;
@@ -98,13 +106,23 @@ module rp2a03_dma(
 				begin
 					a_out <= 16'h2004;
 					dma_active <= 1'b1;
+					cpu_ready <= 1'b0;
 					dma_r_nw <= 1'b0;
+					dmc_ack <= 1'b0;
+				end
+				S_DMC_WAIT:
+				begin
+					a_out <= 16'hxxxx;
+					dma_active <= 1'b0;
+					cpu_ready <= 1'b0;
+					dma_r_nw <= 1'b1;
 					dmc_ack <= 1'b0;
 				end
 				S_DMC_READ, S_DMC_READ_INT:
 				begin
 					a_out <= dmc_dma_addr;
 					dma_active <= 1'b1;
+					cpu_ready <= 1'b0;
 					dma_r_nw <= 1'b1;
 					dmc_ack <= 1'b1;
 				end
@@ -112,6 +130,7 @@ module rp2a03_dma(
 				begin
 					a_out <= 16'hxxxx;
 					dma_active <= 1'b0;
+					cpu_ready <= 1'b1;
 					dma_r_nw <= 1'b1;
 					dmc_ack <= 1'b0;
 				end

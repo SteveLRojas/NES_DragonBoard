@@ -47,7 +47,9 @@ module rp2a03
   output wire        jp_latch,       // joypad output latch signal
 
   // Audio signals.
-  output wire        audio_out      // pwm audio output
+  output wire        audio_out,      // pwm audio output
+  //debug
+  output wire[2:0] debug
 );
 
 reg[5:0] clk_count;
@@ -80,21 +82,51 @@ wire [ 7:0] cpu_dout;
 wire [15:0] cpu_a;
 wire        cpu_r_nw;
 
-cpu cpu_blk(
-  .clk_in(clk_in),
-  .rst_in(rst_in),
-  .ready_in(cpu_ready),
-  .d_in(cpu_din),
-  .nnmi_in(nnmi_in),
-  .nirq_in(~apu_irq),
-  .d_out(cpu_dout),
-  .a_out(cpu_a),
-  .r_nw_out(cpu_r_nw));
+//cpu cpu_blk(
+//  .clk_in(clk_in),
+//  .rst_in(rst_in),
+//  .ready_in(cpu_ready),
+//  .d_in(cpu_din),
+//  .nnmi_in(nnmi_in),
+//  .nirq_in(~apu_irq),
+//  .d_out(cpu_dout),
+//  .a_out(cpu_a),
+//  .r_nw_out(cpu_r_nw));
+T65 cpu_inst(
+	.mode(2'b00),
+	.BCD_en(1'b0),
+
+	.res_n(~rst_in),
+	.clk(clk_in),
+	.enable(cpu_clk),
+	
+	.A(cpu_a),
+	.DI(cpu_r_nw ? cpu_din : cpu_dout),
+	.DO(cpu_dout),
+	
+	.rdy(cpu_ready),
+   .Abort_n(1'b1),
+	.IRQ_n(~apu_irq),
+	.NMI_n(nnmi_in),
+	.SO_n(1'b1),
+	.R_W_n(cpu_r_nw),
+	.Sync(),
+	.EF(),
+	.MF(),
+	.XF(),
+	.ML_n(),
+	.VP_n(),
+	.VDA(),
+	.VPA(),
+	.NMI_ack());
 
 //
 // APU: audio processing unit block.
 //
 wire [7:0] audio_dout;
+wire dma_ack;
+wire dma_req;
+wire[14:0] dma_address;
 
 //apu apu_blk(
 //  .clk_in(clk_in),
@@ -112,6 +144,10 @@ apu_gen2 apu_inst(
   .a_in(cpu_a),
   .from_cpu(cpu_dout),
   .r_nw(cpu_r_nw),
+  .dma_ack(dma_ack),
+  .from_mem(d_in),
+  .dma_req(dma_req),
+  .dma_address(dma_address),
   .audio_out(audio_out),
   .to_cpu(audio_dout),
   .irq(apu_irq));
@@ -140,6 +176,7 @@ wire        sprdma_active;
 wire [15:0] sprdma_a;
 wire [ 7:0] sprdma_dout;
 wire        sprdma_r_nw;
+wire 			dma_cpu_ready;
 
 //sprdma sprdma_blk(
 //    .horiz_advance(horiz_advance),
@@ -158,24 +195,26 @@ rp2a03_dma dma_inst(
 		.clk(clk_in),
 		.cpu_clk(cpu_clk),
 		.rst(rst_in),
-		.spr_trig(cpu_a == 16'h4014 && !cpu_r_nw),		// Sprite DMA trigger
-		.dmc_trig(1'b0),		// DMC DMA trigger
-		.cpu_r_nw(cpu_r_nw),		// CPU is in a read cycle
-		.from_cpu(cpu_dout),		// Data written by CPU
-		.from_ram(d_in),		// Data read from RAM
-		.dmc_dma_addr(16'hxxxx),		// DMC DMA Address
-		.a_out(sprdma_a),		// Address to access
-		.dma_active(sprdma_active),		// DMA controller wants bus control
-		.dma_r_nw(sprdma_r_nw),		// 1 = read, 0 = write
-		.to_ram(sprdma_dout),		// Value to write to RAM
-		.dmc_ack());		// ACK the DMC DMA
+		.spr_trig(cpu_a == 16'h4014 && !cpu_r_nw),
+		.dmc_trig(dma_req),
+		.cpu_r_nw(cpu_r_nw),
+		.from_cpu(cpu_dout),
+		.from_ram(d_in),
+		.dmc_dma_addr({1'b1, dma_address}),
+		.a_out(sprdma_a),
+		.dma_active(sprdma_active),
+		.cpu_ready(dma_cpu_ready),
+		.dma_r_nw(sprdma_r_nw),
+		.to_ram(sprdma_dout),
+		.dmc_ack(dma_ack));
 
-assign cpu_ready = rdy_in & !sprdma_active;
+assign cpu_ready = rdy_in & dma_cpu_ready;
 assign cpu_din   = d_in | jp_dout | audio_dout;
 
 assign d_out     = (sprdma_active) ? sprdma_dout : cpu_dout;
 assign a_out     = (sprdma_active) ? sprdma_a    : cpu_a;
 assign r_nw_out  = (sprdma_active) ? sprdma_r_nw : cpu_r_nw;
+assign debug = {cpu_r_nw, cpu_ready, sprdma_active};
 
 endmodule
 

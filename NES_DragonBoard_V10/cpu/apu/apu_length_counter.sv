@@ -1,9 +1,9 @@
 module apu_length_counter_gen2(
 		input logic clk,
 		input logic rst,
-		input logic length_en,	// enable signal (from $4015)
+		input logic length_en,		// enable signal (from $4015)
 		input logic length_halt,	// disable length decrement
-		input logic l_pulse,	// length pulse from frame counter
+		input logic l_pulse,			// length pulse from frame counter
 		input logic[4:0] from_cpu,	// new length value
 		input logic length_wren,	// update length to length_in
 		output logic active_out);	// length counter is non-0

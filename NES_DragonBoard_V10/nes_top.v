@@ -67,7 +67,6 @@ assign LED[3] = ~cpu_reset;
 
 rp2a03 rp2a03_blk(
     .clk_in(clk_25),
-    //.rst_in(~reset_s | ~button_s[0]),
 	 .rst_in(cpu_reset | ~button_s[0]),
     .rdy_in(button_s[1]),
     .d_in(to_cpu),
@@ -80,8 +79,8 @@ rp2a03 rp2a03_blk(
     .jp1_clk(jp_clk1),
 	 .jp2_clk(jp_clk2),
     .jp_latch(jp_latch),
-    //.mute_in(4'b0000),
-    .audio_out(AUDIO)
+    .audio_out(AUDIO),
+	 .debug()
 );
 
 //
@@ -90,7 +89,6 @@ rp2a03 rp2a03_blk(
 wire [ 2:0] ppu_ri_sel;     // ppu register interface reg select
 wire        ppu_ri_ncs;     // ppu register interface enable
 wire        ppu_ri_r_nw;    // ppu register interface read/write select
-//wire [ 7:0] ppu_ri_din;     // ppu register interface data input
 wire [ 7:0] ppu_ri_dout;    // ppu register interface data output
 
 wire [13:0] ppu_vram_a;     // ppu video ram address bus
@@ -103,10 +101,8 @@ wire        ppu_nvbl;       // ppu /VBL signal.
 // PPU snoops the CPU address bus for register reads/writes.  Addresses 0x2000-0x2007
 // are mapped to the PPU register space, with every 8 bytes mirrored through 0x3FFF.
 assign ppu_ri_sel  = rp2a03_a[2:0];
-//assign ppu_ri_ncs  = (rp2a03_a[15:13] == 3'b001) ? 1'b0 : 1'b1;
 assign ppu_ri_ncs = ~(rp2a03_a[15:13] == 3'b001);
 assign ppu_ri_r_nw = rp2a03_r_nw;
-//assign ppu_ri_din  = rp2a03_dout;
 
 PPU_gen2 ppu_inst(
     .debug_in({button_s[3], button_s[2]}),
@@ -154,7 +150,7 @@ wire        cart_ciram_a10;
 //  .ciram_a10_out(cart_ciram_a10)
 //);
 
-cart_02 cart_inst(
+cart_00 cart_inst(
 		.clk_sys(clk_25),	// system clock signal
 		.clk_sdram(clk_50),
 		.rst(~reset_s),

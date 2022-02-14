@@ -1,5 +1,5 @@
+Warning (10268): Verilog HDL information at apu_pulse.sv(55): always construct contains both blocking and non-blocking assignments File: E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.sv Line: 55
+Warning (10268): Verilog HDL information at apu_pulse.sv(215): always construct contains both blocking and non-blocking assignments File: E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.sv Line: 215
 Warning (10273): Verilog HDL warning at sdr.sv(967): extended using "x" or "z" File: E:/NES_DragonBoard_V10/sdr.sv Line: 967
 Warning (10268): Verilog HDL information at sdr.sv(187): always construct contains both blocking and non-blocking assignments File: E:/NES_DragonBoard_V10/sdr.sv Line: 187
 Warning (10268): Verilog HDL information at I2C_phy.sv(61): always construct contains both blocking and non-blocking assignments File: E:/NES_DragonBoard_V10/I2C_phy.sv Line: 61
-Warning (10268): Verilog HDL information at apu_pulse.sv(55): always construct contains both blocking and non-blocking assignments File: E:/NES_DragonBoard_V10/apu_pulse.sv Line: 55
-Warning (10268): Verilog HDL information at apu_pulse.sv(215): always construct contains both blocking and non-blocking assignments File: E:/NES_DragonBoard_V10/apu_pulse.sv Line: 215
