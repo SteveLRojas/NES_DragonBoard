@@ -1,0 +1,596 @@
+# Reading D:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do NES_DragonBoard_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/PPU_gen2.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:16 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/PPU_gen2.v 
+# -- Compiling module PPU_gen2
+# ** Warning: E:/NES_DragonBoard_V10/PPU_gen2.v(357): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# Top level modules:
+# 	PPU_gen2
+# End time: 21:01:16 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/nes_top.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:16 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/nes_top.v 
+# -- Compiling module NES_DragonBoard
+# 
+# Top level modules:
+# 	NES_DragonBoard
+# End time: 21:01:16 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/sprdma.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:16 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/sprdma.v 
+# -- Compiling module sprdma
+# 
+# Top level modules:
+# 	sprdma
+# End time: 21:01:16 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/rp2a03.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:16 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/rp2a03.v 
+# -- Compiling module rp2a03
+# 
+# Top level modules:
+# 	rp2a03
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/cpu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/cpu.v 
+# -- Compiling module cpu
+# 
+# Top level modules:
+# 	cpu
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v 
+# -- Compiling module apu_triangle
+# 
+# Top level modules:
+# 	apu_triangle
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v 
+# -- Compiling module apu_pulse
+# 
+# Top level modules:
+# 	apu_pulse
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v 
+# -- Compiling module apu_noise
+# 
+# Top level modules:
+# 	apu_noise
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v 
+# -- Compiling module apu_mixer
+# 
+# Top level modules:
+# 	apu_mixer
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v 
+# -- Compiling module apu_length_counter
+# 
+# Top level modules:
+# 	apu_length_counter
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v 
+# -- Compiling module apu_frame_counter
+# 
+# Top level modules:
+# 	apu_frame_counter
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v 
+# -- Compiling module apu_envelope_generator
+# 
+# Top level modules:
+# 	apu_envelope_generator
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_div.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_div.v 
+# -- Compiling module apu_div
+# 
+# Top level modules:
+# 	apu_div
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu.v 
+# -- Compiling module apu
+# 
+# Top level modules:
+# 	apu
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cart {E:/NES_DragonBoard_V10/cart/cart_02.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:17 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cart" E:/NES_DragonBoard_V10/cart/cart_02.v 
+# -- Compiling module cart_02
+# 
+# Top level modules:
+# 	cart_02
+# End time: 21:01:17 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/vram.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/vram.v 
+# -- Compiling module vram
+# 
+# Top level modules:
+# 	vram
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/wram.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/wram.v 
+# -- Compiling module wram
+# 
+# Top level modules:
+# 	wram
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/PLL0.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/PLL0.v 
+# -- Compiling module PLL0
+# 
+# Top level modules:
+# 	PLL0
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/CHR_RAM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/CHR_RAM.v 
+# -- Compiling module CHR_RAM
+# 
+# Top level modules:
+# 	CHR_RAM
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/db {E:/NES_DragonBoard_V10/db/pll0_altpll.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/db" E:/NES_DragonBoard_V10/db/pll0_altpll.v 
+# -- Compiling module PLL0_altpll
+# 
+# Top level modules:
+# 	PLL0_altpll
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/eeprom.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/eeprom.sv 
+# -- Compiling module I2C_EEPROM
+# 
+# Top level modules:
+# 	I2C_EEPROM
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv 
+# -- Compiling module SDRAM_SP8_I
+# 
+# Top level modules:
+# 	SDRAM_SP8_I
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/I2C_phy.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/I2C_phy.sv 
+# -- Compiling module I2C_phy
+# 
+# Top level modules:
+# 	I2C_phy
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/joypad.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/joypad.sv 
+# -- Compiling module joypad
+# 
+# Top level modules:
+# 	joypad
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cart {E:/NES_DragonBoard_V10/cart/cart_02.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cart" E:/NES_DragonBoard_V10/cart/cart_02.v 
+# -- Compiling module cart_02
+# 
+# Top level modules:
+# 	cart_02
+# End time: 21:01:18 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:18 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu.v 
+# -- Compiling module apu
+# 
+# Top level modules:
+# 	apu
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_div.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_div.v 
+# -- Compiling module apu_div
+# 
+# Top level modules:
+# 	apu_div
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_envelope_generator.v 
+# -- Compiling module apu_envelope_generator
+# 
+# Top level modules:
+# 	apu_envelope_generator
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_frame_counter.v 
+# -- Compiling module apu_frame_counter
+# 
+# Top level modules:
+# 	apu_frame_counter
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_length_counter.v 
+# -- Compiling module apu_length_counter
+# 
+# Top level modules:
+# 	apu_length_counter
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_mixer.v 
+# -- Compiling module apu_mixer
+# 
+# Top level modules:
+# 	apu_mixer
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_noise.v 
+# -- Compiling module apu_noise
+# 
+# Top level modules:
+# 	apu_noise
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_pulse.v 
+# -- Compiling module apu_pulse
+# 
+# Top level modules:
+# 	apu_pulse
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu/apu {E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu/apu" E:/NES_DragonBoard_V10/cpu/apu/apu_triangle.v 
+# -- Compiling module apu_triangle
+# 
+# Top level modules:
+# 	apu_triangle
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/cpu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/cpu.v 
+# -- Compiling module cpu
+# 
+# Top level modules:
+# 	cpu
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/jp.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/jp.v 
+# -- Compiling module jp
+# 
+# Top level modules:
+# 	jp
+# End time: 21:01:19 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/rp2a03.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:19 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/rp2a03.v 
+# -- Compiling module rp2a03
+# 
+# Top level modules:
+# 	rp2a03
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10/cpu {E:/NES_DragonBoard_V10/cpu/sprdma.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10/cpu" E:/NES_DragonBoard_V10/cpu/sprdma.v 
+# -- Compiling module sprdma
+# 
+# Top level modules:
+# 	sprdma
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/CHR_RAM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/CHR_RAM.v 
+# -- Compiling module CHR_RAM
+# 
+# Top level modules:
+# 	CHR_RAM
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/eeprom.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/eeprom.sv 
+# -- Compiling module I2C_EEPROM
+# 
+# Top level modules:
+# 	I2C_EEPROM
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/I2C_phy.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/I2C_phy.sv 
+# -- Compiling module I2C_phy
+# 
+# Top level modules:
+# 	I2C_phy
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/nes_top.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/nes_top.v 
+# -- Compiling module NES_DragonBoard
+# 
+# Top level modules:
+# 	NES_DragonBoard
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/PLL0.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/PLL0.v 
+# -- Compiling module PLL0
+# 
+# Top level modules:
+# 	PLL0
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/PPU_gen2.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/PPU_gen2.v 
+# -- Compiling module PPU_gen2
+# ** Warning: E:/NES_DragonBoard_V10/PPU_gen2.v(357): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# Top level modules:
+# 	PPU_gen2
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/sdr.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/sdr.sv 
+# -- Compiling module sdr
+# ** Warning: ** while parsing file included at E:/NES_DragonBoard_V10/sdr.sv(50)
+# ** at E:/NES_DragonBoard_V10/sdr_parameters.sv(79): (vlog-2263) Redefinition of macro: 'sg75' (previously defined near E:/NES_DragonBoard_V10/sdr_parameters.sv(29), old value '1', new value '') .
+# 
+# Top level modules:
+# 	sdr
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/SDRAM_SP8_I.sv 
+# -- Compiling module SDRAM_SP8_I
+# 
+# Top level modules:
+# 	SDRAM_SP8_I
+# End time: 21:01:20 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/testbench.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:20 on Jan 24,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/testbench.sv 
+# -- Compiling module Testbench_sdram
+# 
+# Top level modules:
+# 	Testbench_sdram
+# End time: 21:01:21 on Jan 24,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/vram.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:21 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/vram.v 
+# -- Compiling module vram
+# 
+# Top level modules:
+# 	vram
+# End time: 21:01:21 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/NES_DragonBoard_V10 {E:/NES_DragonBoard_V10/wram.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:01:21 on Jan 24,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/NES_DragonBoard_V10" E:/NES_DragonBoard_V10/wram.v 
+# -- Compiling module wram
+# 
+# Top level modules:
+# 	wram
+# End time: 21:01:21 on Jan 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  Testbench_sdram
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" Testbench_sdram 
+# Start time: 21:01:21 on Jan 24,2022
+# Loading sv_std.std
+# Loading work.Testbench_sdram
+# Loading work.NES_DragonBoard
+# Loading work.PLL0
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.rp2a03
+# Loading work.cpu
+# Loading work.apu
+# Loading work.apu_div
+# Loading work.apu_frame_counter
+# Loading work.apu_pulse
+# Loading work.apu_envelope_generator
+# Loading work.apu_length_counter
+# Loading work.apu_triangle
+# Loading work.apu_noise
+# Loading work.apu_mixer
+# Loading work.joypad
+# Loading work.sprdma
+# Loading work.PPU_gen2
+# Loading work.cart_02
+# Loading work.SDRAM_SP8_I
+# Loading work.I2C_EEPROM
+# Loading work.I2C_phy
+# Loading work.CHR_RAM
+# Loading altera_mf_ver.altsyncram
+# Loading work.vram
+# Loading work.wram
+# Loading work.sdr
+# Loading altera_mf_ver.MF_cycloneiii_pll
+# Loading altera_mf_ver.cda_m_cntr
+# Loading altera_mf_ver.cda_n_cntr
+# Loading altera_mf_ver.cda_scale_cntr
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: Design size of 10168 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 1 us
+#  Note : Cyclone IV E PLL locked to incoming clock
+# Time: 90.0 ns  Instance: Testbench_sdram.nes_inst.PLL_inst.altpll_component.cycloneiii_pll.pll3
+# Testbench_sdram.sdram0 : at time     310.0 ns LMR  : Load Mode Register
+# Testbench_sdram.sdram0 :                             CAS Latency      = 2
+# Testbench_sdram.sdram0 :                             Burst Length     = 1
+# Testbench_sdram.sdram0 :                             Burst Type       = Sequential
+# Testbench_sdram.sdram0 :                             Write Burst Mode = Programmed Burst Length
+# Testbench_sdram.sdram0 : at time     350.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     450.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     550.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     650.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     750.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     850.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     950.0 ns AREF : Auto Refresh
+add wave -position insertpoint  \
+sim:/Testbench_sdram/nes_inst/rp2a03_blk/apu_blk/apu_pulse_gen/pulse_in \
+sim:/Testbench_sdram/nes_inst/rp2a03_blk/apu_blk/apu_pulse_gen/pulse_out
+add wave -position insertpoint  \
+sim:/Testbench_sdram/nes_inst/rp2a03_blk/apu_blk/rst_in
+restart
+run
+#  Note : Cyclone IV E PLL locked to incoming clock
+# Time: 90.0 ns  Instance: Testbench_sdram.nes_inst.PLL_inst.altpll_component.cycloneiii_pll.pll3
+# Testbench_sdram.sdram0 : at time     310.0 ns LMR  : Load Mode Register
+# Testbench_sdram.sdram0 :                             CAS Latency      = 2
+# Testbench_sdram.sdram0 :                             Burst Length     = 1
+# Testbench_sdram.sdram0 :                             Burst Type       = Sequential
+# Testbench_sdram.sdram0 :                             Write Burst Mode = Programmed Burst Length
+# Testbench_sdram.sdram0 : at time     350.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     450.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     550.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     650.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     750.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     850.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time     950.0 ns AREF : Auto Refresh
+# Testbench_sdram.sdram0 : at time    1050.0 ns AREF : Auto Refresh
+force -freeze sim:/Testbench_sdram/nes_inst/rp2a03_blk/apu_blk/rst_in St0 0
+run
+# End time: 21:08:12 on Jan 24,2022, Elapsed time: 0:06:51
+# Errors: 0, Warnings: 1

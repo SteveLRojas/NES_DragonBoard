@@ -65,3 +65,6 @@ Mapper 2:
 Mapper 71:
 	Fire Hawk: intro is glitched, not playable.
 	Dizzy the Adventurer: working.
+
+Revision 9:
+Updated Quartus project to version 19.1.

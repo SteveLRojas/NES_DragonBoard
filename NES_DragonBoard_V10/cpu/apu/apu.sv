@@ -162,7 +162,7 @@ module apu_gen2(
 			.noise_out(noise_out),
 			.active_out(noise_active));
 	
-	apu_dmc(
+	apu_dmc apu_dmc_inst(
 			.clk(clk),
 			.apu_clk(apu_clk),
 			.cpu_clk(cpu_clk),

@@ -1,0 +1,67 @@
+Revision 4:
+PPU_gen2 module created.
+Added coe files for Donkey Kong.
+Created 16KB PRG ROM.
+Configured cart for Donkey Kong.
+Created testbench.
+Added CPU reset logic for simulation.
+	CPU reset logic had been removed because it was broken (reset caused the CPU to freeze until a reset interrupt with nres).
+	Fixed CPU reset logic.
+Simulation and initial debugging complete.
+	The first 8 pixels of the first line may not be drawn correctly.
+	This may not get fixed in Gen 2, as it requires the prerender scanline.
+	A bug causes graphical artefacts in Super Mario Bros, but this is likely a problem with the rest of the system and not the PPU.
+
+Revision 5:
+Created new project in Vivado 2019.1.
+Created new vram and wram modules.
+Fixed bug in spr_y_compare logic.
+Fixed bug in ri (address was being incremented early in 2007 reads).
+Fixed timing bug that caused the image to be shifted left by one pixel.
+
+Revision 6:
+Created new project in Quartus (18.1)
+Created new vram and wram modules.
+Created new cart module.
+Added synchronizer to reset input.
+Removed nres input from CPU module.
+Found hardware bug in DragonBoard (RGB resistors swapped).
+Changed RGB pin assignments.
+Created SDRAM_SP8_I module.
+Created I2C_EEPROM module.
+Added I2C_phy module.
+Modified cart_02 module to use SDRAM and EEPROM memories.
+Created new testbench for SDRAM and I2C debugging.
+
+Revision 7:
+Created new joypad module.
+Simplified APU clock divider.
+Tweaked PPU palette.
+Created new APU frame counter module.
+Created new envelope generator module.
+Created new apu_pulse module.
+Created new apu_length_counter.
+Created new mixer module.
+Created new DMA module.
+Created new APU module.
+Fixed bug in DMA module.
+Fixed bug in PPU (v_tile overflow should not toggle v_name).
+Found bug in CPU (crash on IRQ).
+Created DMC module.
+Fixed bug in DMA module.
+Replaced CPU module with T65.
+Created mapper 71 cart.
+
+Revision 8:
+Created new mapper 0 module.
+
+Tested games by mapper:
+Mapper 0:
+	Galaxian: working.
+	Super Mario Bros: working, minor glitching in score bar.
+Mapper 2:
+	Contra: working.
+	DuckTales: working.
+Mapper 71:
+	Fire Hawk: intro is glitched, not playable.
+	Dizzy the Adventurer: working.

@@ -41,7 +41,7 @@ set_global_assignment -name DEVICE EP4CE6E22C8
 set_global_assignment -name TOP_LEVEL_ENTITY NES_DragonBoard
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:17:08  DECEMBER 17, 2021"
-set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "19.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -275,7 +275,6 @@ set_global_assignment -name VHDL_FILE t65/T65_Pack.vhd
 set_global_assignment -name VHDL_FILE t65/T65_MCode.vhd
 set_global_assignment -name VHDL_FILE t65/T65_ALU.vhd
 set_global_assignment -name VHDL_FILE t65/T65.vhd
-set_global_assignment -name SYSTEMVERILOG_FILE sdr.sv
 set_global_assignment -name SYSTEMVERILOG_FILE eeprom.sv
 set_global_assignment -name SYSTEMVERILOG_FILE SDRAM_SP8_I.sv
 set_global_assignment -name SDC_FILE SDC1.sdc
@@ -299,4 +298,6 @@ set_global_assignment -name QIP_FILE multiplier.qip
 set_global_assignment -name SYSTEMVERILOG_FILE rp2a03_dma.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cart/cart_71.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cart/cart_00.sv
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 16
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
