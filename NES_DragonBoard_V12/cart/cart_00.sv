@@ -19,7 +19,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module cart_00(
 		input 	logic clk_sys,	// system clock signal
-		input 	logic clk_sdram,
+		input 	logic clk_mem,
 		input 	logic rst,
 		output 	logic rst_out,
 		
@@ -75,7 +75,7 @@ module cart_00(
 		rst_out = 1'b1;
 	end
 	
-	always @(posedge clk_sdram)
+	always @(posedge clk_mem)
 	begin
 		if(rst)
 		begin
@@ -91,7 +91,7 @@ module cart_00(
 	end
 
 SDRAM_SP8_I SDRAM_inst(
-		.clk(clk_sdram),
+		.clk(clk_mem),
 		.rst(rst),
 		
 		.mem_address({6'h00, prg_a_in}),
@@ -118,7 +118,7 @@ SDRAM_SP8_I SDRAM_inst(
 		.init_data(init_data));
 		
 I2C_EEPROM EEPROM_inst(
-		.clk(clk_sdram),
+		.clk(clk_mem),
 		.rst(rst),
 		.read_req(init_req),
 		.address(init_address[16:0]),

@@ -19,7 +19,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module cart_71(
 		input logic clk_sys,	// system clock signal
-		input logic clk_sdram,
+		input logic clk_mem,
 		input logic rst,
 		output logic rst_out,
 		// PRG-ROM interface:
@@ -90,7 +90,7 @@ begin
 		mirroring <= prg_d_in[4];
 end
 
-always @(posedge clk_sdram)
+always @(posedge clk_mem)
 begin
 	if(rst)
 	begin
@@ -109,7 +109,7 @@ end
 //CHR_RAM CHR_inst(.clka(clk_in), .addra(chr_a_in[12:0]), .wea(chrram_we), .dina(chr_d_in), .douta(chrram_dout));
 
 SDRAM_SP8_I SDRAM_inst(
-		.clk(clk_sdram),
+		.clk(clk_mem),
 		.rst(rst),
 		
 		.mem_address(mem_address),
@@ -136,7 +136,7 @@ SDRAM_SP8_I SDRAM_inst(
 		.init_data(init_data));
 		
 I2C_EEPROM EEPROM_inst(
-		.clk(clk_sdram),
+		.clk(clk_mem),
 		.rst(rst),
 		.read_req(init_req),
 		.address(init_address[16:0]),

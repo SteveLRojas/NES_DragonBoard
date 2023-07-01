@@ -176,7 +176,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "reset",
+					"name" : "jp_data1",
+					"strict" : false
+				},
+				{
+					"name" : "jp_data2",
 					"strict" : false
 				},
 				{
@@ -196,11 +200,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "jp_data1",
-					"strict" : false
-				},
-				{
-					"name" : "jp_data2",
+					"name" : "reset",
 					"strict" : false
 				}
 			]
