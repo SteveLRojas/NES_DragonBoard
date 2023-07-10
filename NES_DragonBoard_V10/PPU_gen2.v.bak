@@ -667,20 +667,18 @@ module PPU_gen2
     //Secondary OAM
     wire[4:0] sec_OAM_a;
     wire[7:0] sec_OAM_d;
-    wire[7:0] sec_OAM_q;
+    reg[7:0] sec_OAM_q;
     wire sec_OAM_wren;
     reg[7:0] m_sec_OAM[31:0];
-	reg[4:0] sec_OAM_a_hold;
 
     always @(posedge clk_in)
     begin
-		sec_OAM_a_hold <= sec_OAM_a;
         if(sec_OAM_wren)
         begin
             m_sec_OAM[sec_OAM_a] <= sec_OAM_d;
         end
+        sec_OAM_q <= m_sec_OAM[sec_OAM_a];  //TODO change this to infer block ram
     end
-	assign sec_OAM_q = m_sec_OAM[sec_OAM_a_hold];  //TODO change this to infer block ram
 
     //Sprite rendering FSM
     reg[3:0] state;
