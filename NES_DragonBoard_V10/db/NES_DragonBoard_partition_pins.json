@@ -92,11 +92,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "jp_data1",
+					"name" : "jp_data2",
 					"strict" : false
 				},
 				{
-					"name" : "jp_data2",
+					"name" : "jp_data1",
 					"strict" : false
 				}
 			]
