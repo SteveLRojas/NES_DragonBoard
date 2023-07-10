@@ -91,7 +91,6 @@ module NES_DragonBoard(
 	wire rp2a03_r_nw;
 	wire cpu_reset;
 	
-	assign cpu_reset = rst;
 	assign LED[3] = ~cpu_reset;
 
 	rp2a03 rp2a03_blk(
@@ -169,64 +168,53 @@ module NES_DragonBoard(
 	
 	assign cart_prg_nce = ~rp2a03_a[15];
 
-	cart cart_blk(
-		.clk_in(clk_25),
+	//cart cart_blk(
+	//  .clk_in(clk_25),
+	//  .prg_nce_in(cart_prg_nce),
+	//  .prg_a_in(rp2a03_a[14:0]),
+	//  .prg_r_nw_in(rp2a03_r_nw),
+	//  .prg_d_in(rp2a03_dout),
+	//  .prg_d_out(cart_prg_dout),
+	//  .chr_a_in(ppu_vram_a),
+	//  .chr_r_nw_in(~ppu_vram_wr),
+	//  .chr_d_in(ppu_vram_dout),
+	//  .chr_d_out(cart_chr_dout),
+	//  .ciram_nce_out(cart_ciram_nce),
+	//  .ciram_a10_out(cart_ciram_a10)
+	//);
+
+	cart_02 cart_inst(
+		.clk_sys(clk_25),	// system clock signal
+		.clk_mem(clk_50),
+		.rst(rst),
+		.rst_out(cpu_reset),
+		// PRG ROM interface:
 		.prg_nce_in(cart_prg_nce),
 		.prg_a_in(rp2a03_a[14:0]),
 		.prg_r_nw_in(rp2a03_r_nw),
 		.prg_d_in(from_cpu),
 		.prg_d_out(cart_prg_dout),
+		// CHR RAM interface:
 		.chr_a_in(ppu_vram_a),
 		.chr_r_nw_in(~ppu_vram_wr),
 		.chr_d_in(ppu_vram_dout),
 		.chr_d_out(cart_chr_dout),
 		.ciram_nce_out(cart_ciram_nce),
-		.ciram_a10_out(cart_ciram_a10)
+		.ciram_a10_out(cart_ciram_a10),
+		// SDRAM interface:
+		.sdram_cke(sdram_cke),
+		.sdram_cs_n(sdram_cs_n),
+		.sdram_wre_n(sdram_wre_n),
+		.sdram_cas_n(sdram_cas_n),
+		.sdram_ras_n(sdram_ras_n),
+		.sdram_a(sdram_a),
+		.sdram_ba(sdram_ba),
+		.sdram_dqm(sdram_dqm),
+		.sdram_dq(sdram_dq),
+		// I2C interface:
+		.i2c_sda(i2c_sda),
+		.i2c_scl(i2c_scl)
 	);
-	assign sdram_cke = 1'b0;
-	assign sdram_cs_n = 1'b1;
-	assign sdram_wre_n = 1'b1;
-	assign sdram_cas_n = 1'b1;
-	assign sdram_ras_n = 1'b1;
-	assign sdram_a = 11'h000;
-	assign sdram_ba = 1'b0;
-	assign sdram_dqm = 1'b1;
-	assign sdram_dq = 8'hzz;
-	assign i2c_sda = 1'bz;
-	assign i2c_scl = 1'bz;
-
-//	cart_02 cart_inst(
-//		.clk_sys(clk_25),	// system clock signal
-//		.clk_mem(clk_50),
-//		.rst(rst),
-//		.rst_out(cpu_reset),
-//		// PRG ROM interface:
-//		.prg_nce_in(cart_prg_nce),
-//		.prg_a_in(rp2a03_a[14:0]),
-//		.prg_r_nw_in(rp2a03_r_nw),
-//		.prg_d_in(from_cpu),
-//		.prg_d_out(cart_prg_dout),
-//		// CHR RAM interface:
-//		.chr_a_in(ppu_vram_a),
-//		.chr_r_nw_in(~ppu_vram_wr),
-//		.chr_d_in(ppu_vram_dout),
-//		.chr_d_out(cart_chr_dout),
-//		.ciram_nce_out(cart_ciram_nce),
-//		.ciram_a10_out(cart_ciram_a10),
-//		// SDRAM interface:
-//		.sdram_cke(sdram_cke),
-//		.sdram_cs_n(sdram_cs_n),
-//		.sdram_wre_n(sdram_wre_n),
-//		.sdram_cas_n(sdram_cas_n),
-//		.sdram_ras_n(sdram_ras_n),
-//		.sdram_a(sdram_a),
-//		.sdram_ba(sdram_ba),
-//		.sdram_dqm(sdram_dqm),
-//		.sdram_dq(sdram_dq),
-//		// I2C interface:
-//		.i2c_sda(i2c_sda),
-//		.i2c_scl(i2c_scl)
-//	);
 //#############################################################################
 
 

@@ -261,6 +261,9 @@ set_global_assignment -name EDA_TEST_BENCH_FILE vram.qip -section_id Testbench_s
 set_global_assignment -name EDA_TEST_BENCH_FILE vram.v -section_id Testbench_sdram
 set_global_assignment -name EDA_TEST_BENCH_FILE wram.qip -section_id Testbench_sdram
 set_global_assignment -name EDA_TEST_BENCH_FILE wram.v -section_id Testbench_sdram
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 16
+set_global_assignment -name SYSTEMVERILOG_FILE button_debounce.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cpu/apu/apu_triangle.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cpu/apu/apu_pulse_test.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cpu/apu/apu_pulse.sv
@@ -298,6 +301,4 @@ set_global_assignment -name QIP_FILE multiplier.qip
 set_global_assignment -name SYSTEMVERILOG_FILE rp2a03_dma.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cart/cart_71.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cart/cart_00.sv
-set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
-set_global_assignment -name NUM_PARALLEL_PROCESSORS 16
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
