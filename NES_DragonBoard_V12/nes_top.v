@@ -70,7 +70,13 @@ module NES_DragonBoard(
 		end
 	end
 	
-	button_debounce button_debounce_i
+	button_debounce
+	#(
+		.INVERT_BUTTONS(1'b1),
+		.NUM_BUTTONS(4),
+		.CLK_DIV_BITS(15)
+	)
+	button_debounce_i
 	(
 		.clk(clk_25),
 		.rst_in(reset),
@@ -143,6 +149,7 @@ module NES_DragonBoard(
 		 .ri_r_nw_in(ppu_ri_r_nw),
 		 .ri_d_in(from_cpu),
 		 .vram_d_in(ppu_vram_din),
+		 .vde(),
 		 .hsync_out(VGA_HSYNC),
 		 .vsync_out(VGA_VSYNC),
 		 .r_out(VGA_RED),

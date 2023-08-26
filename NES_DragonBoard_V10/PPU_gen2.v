@@ -30,24 +30,25 @@
 module PPU_gen2
 (
     input wire[1:0] debug_in,
-    input wire clk_in,					// 25MHz pixel clock signal
-    input wire rst_in,					// reset signal
+    input wire clk_in,				// 25MHz pixel clock signal
+    input wire rst_in,				// reset signal
     input wire[2:0] ri_sel_in,		// register interface reg select
-    input wire ri_ncs_in,				// register interface enable
-    input wire ri_r_nw_in,				// register interface read/write select
-    input wire[7:0] ri_d_in,			// register interface data in
+    input wire ri_ncs_in,			// register interface enable
+    input wire ri_r_nw_in,			// register interface read/write select
+    input wire[7:0] ri_d_in,		// register interface data in
     input wire[7:0] vram_d_in,		// video memory data bus (input)
     output wire[2:0] debug_out,
-    output reg hsync_out,				// vga hsync signal
-    output reg vsync_out,				// vga vsync signal
-    output wire[1:0] r_out,			// vga red signal
-    output wire[1:0] g_out,			// vga green signal
-    output wire[1:0] b_out,			// vga blue signal
-    output wire[7:0] ri_d_out,		// register interface data out
-    output wire nvbl_out,				// ~VBL (low during vertical blank)
+    output reg vde,
+    output reg hsync_out,			// vga hsync signal
+    output reg vsync_out,			// vga vsync signal
+    output wire[1:0] r_out,         // vga red signal
+    output wire[1:0] g_out,         // vga green signal
+    output wire[1:0] b_out,         // vga blue signal
+    output wire[7:0] ri_d_out,      // register interface data out
+    output wire nvbl_out,			// ~VBL (low during vertical blank)
     output wire[13:0] vram_a_out,	// video memory address bus
     output reg[7:0] vram_d_out,		// video memory data bus (output)
-    output reg vram_wr_out				// video memory read/write select
+    output reg vram_wr_out			// video memory read/write select
 );
 
     // PPU register interface
@@ -83,13 +84,12 @@ module PPU_gen2
     reg ri_pram_wr; //write enable for palette ram
 
     wire horiz_advance;
+	wire last_scanline;
     wire vblank;    //active high vblank driven by VGA timing logic
     wire ri_spr0_hit;
     wire ri_spr_overflow;
     wire[7:0] ri_oam_q;
     wire[7:0] ri_pram_q;
-
-    assign debug_out = {ri_spr0_hit, ri_spr_enable, ri_bg_enable};
 
     always @(posedge clk_in or posedge rst_in)
     begin
@@ -150,7 +150,7 @@ module PPU_gen2
             ri_address_inc <= next_ri_address_inc;
         end
     end
-
+	
     always @(*)
     begin
         //default signals to their current value
@@ -223,7 +223,7 @@ module PPU_gen2
             begin
                 // External register write.
                 case (ri_sel_in)
-                    3'h0:  // 0x2000
+                    3'h0:  // 0x2000 PPUCTRL
                     begin
                         next_ri_nmi_enable = ri_d_in[7];
                         next_ri_sprite_height = ri_d_in[5];
@@ -233,24 +233,24 @@ module PPU_gen2
                         next_ri_v_name = ri_d_in[1];
                         next_ri_h_name = ri_d_in[0];
                     end
-                    3'h1:  // 0x2001
+                    3'h1:  // 0x2001 PPUMASK
                     begin
                         next_ri_spr_enable = ri_d_in[4];
                         next_ri_bg_enable = ri_d_in[3];
                         next_ri_spr_clip_enable = ~ri_d_in[2];
                         next_ri_bg_clip_enable = ~ri_d_in[1];
                     end
-                    3'h3:  // 0x2003
+                    3'h3:  // 0x2003 OAMADDR
                     begin
                         next_ri_oam_address = ri_d_in;
                     end
-                    3'h4:  // 0x2004
+                    3'h4:  // 0x2004 OAMDATA
                     begin
                         ri_oam_d = ri_d_in;
                         ri_oam_wr = 1'b1;
                         next_ri_oam_address = ri_oam_address + 8'h01;
                     end
-                    3'h5:  // 0x2005
+                    3'h5:  // 0x2005 PPUSCROLL
                     begin
                         next_ri_byte_sel = ~ri_byte_sel;
                         if (~ri_byte_sel)
@@ -266,7 +266,7 @@ module PPU_gen2
                             next_ri_v_tile = ri_d_in[7:3];
                         end
                     end
-                    3'h6:  // 0x2006
+                    3'h6:  // 0x2006 PPUADDR
                     begin
                         next_ri_byte_sel = ~ri_byte_sel;
                         if (~ri_byte_sel)
@@ -285,7 +285,7 @@ module PPU_gen2
                             next_ri_address_update = 1'b1;
                         end
                     end
-                    3'h7:  // 0x2007
+                    3'h7:  // 0x2007 PPUDATA
                     begin
                         if (vram_a_out[13:8] == 6'h3F)
                             ri_pram_wr = 1'b1;
@@ -376,6 +376,7 @@ module PPU_gen2
 
     // virtual advance logic
     assign horiz_advance = (horiz_scaler == 3'b000) | (horiz_scaler == 3'b010);
+	assign last_scanline = vesa_line[9] & vesa_line[3] & (vesa_line[2] | (&vesa_line[1:0])); //vesa_line is 523 or 524
 
     assign vblank = ~(active_rows | active_draw_area);   //need to check active area because active rows goes low at the start of the last active row
     assign nvbl_out = ~(ri_vblank & ri_nmi_enable);
@@ -482,6 +483,9 @@ module PPU_gen2
     reg update_h_count; //high to update h counters from ri
     reg inc_v_count;    //high to increment v counters to next line
     reg inc_h_count;    //high to increment h counters to next pixel
+	// Note that update takes priority over inc.
+	
+	assign debug_out = {ri_spr0_hit, ri_spr_enable, ri_bg_enable};
 
     //compute next counter values
     always @(*)
@@ -515,16 +519,19 @@ module PPU_gen2
                     {next_v_tile, next_v_fine} = {v_tile, v_fine} + 8'h01;
                 end
             end
+			
             if(inc_h_count)
             begin
                 {next_h_name, next_h_tile} = {h_name, h_tile} + 6'h01;
             end
+			
             if(update_v_count || ri_address_update)
             begin
                 next_v_name  = ri_v_name;
                 next_v_tile = ri_v_tile;
                 next_v_fine = ri_v_fine;
             end
+			
             if(update_h_count || ri_address_update)
             begin
                 next_h_name  = ri_h_name;
@@ -564,9 +571,9 @@ module PPU_gen2
 
                 if(vert_scaler)    //changing to new row
                 begin
-                    if(NES_row == 8'd239)  //finishing last row
-                        update_v_count = 1'b1;
-                    else
+                    //if(NES_row == 8'd239)  //finishing last row
+                    //    update_v_count = 1'b1;
+                    //else
                         inc_v_count = 1'b1;
                 end
             end
@@ -618,7 +625,14 @@ module PPU_gen2
             3'd3:
             begin
                 bg_vram_a = {2'b10, v_name, h_name, 4'b1111, v_tile[4:2], h_tile[4:2]};
-                next_tile_attribute = vram_d_in >> {v_tile[1], h_tile[1], 1'b0};
+                //next_tile_attribute = vram_d_in >> {v_tile[1], h_tile[1], 1'b0};
+				case({v_tile[1], h_tile[1]})
+					2'b00: next_tile_attribute = vram_d_in[1:0];
+					2'b01: next_tile_attribute = vram_d_in[3:2];
+					2'b10: next_tile_attribute = vram_d_in[5:4];
+					2'b11: next_tile_attribute = vram_d_in[7:6];
+					default: next_tile_attribute = 2'bxx;
+				endcase
             end
             3'd4:
                 bg_vram_a = {1'b0, ri_background_select, picture_address, 1'b0, v_fine};
@@ -640,9 +654,22 @@ module PPU_gen2
     wire clip;
     wire clip_area;
     wire[3:0] bg_palette_index;
+	wire[3:0] bg_pi_calc;	//palette_index intermediate calculation
+	wire[7:0] bg_shift3_sel;
+	wire[7:0] bg_shift2_sel;
+	wire[7:0] bg_shift1_sel;
+	wire[7:0] bg_shift0_sel;
+	
+	
     assign clip_area = (NES_col < 8'd16) & (|NES_col[7:3]); //pixels are actually drawn 8 cycles after NES_col and we want to block the first 8
     assign clip = ri_bg_clip_enable && clip_area;
-    assign bg_palette_index = (~clip & ri_bg_enable & debug_in[0]) ? {bg_shift3[ri_h_fine], bg_shift2[ri_h_fine], bg_shift1[ri_h_fine], bg_shift0[ri_h_fine]} : 4'h0;
+	
+	assign bg_shift3_sel = bg_shift3[7:0];	//these intermediate signals exist only to avoid warnings when indexing with ri_h_fine
+	assign bg_shift2_sel = bg_shift2[7:0];
+	assign bg_shift1_sel = bg_shift1[7:0];
+	assign bg_shift0_sel = bg_shift0[7:0];
+	assign bg_pi_calc = {bg_shift3_sel[ri_h_fine], bg_shift2_sel[ri_h_fine], bg_shift1_sel[ri_h_fine], bg_shift0_sel[ri_h_fine]};
+    assign bg_palette_index = {4{(~clip & ri_bg_enable & debug_in[0])}} & bg_pi_calc;
 
     //Sprite rendering logic
 
@@ -680,21 +707,21 @@ module PPU_gen2
             m_sec_OAM[sec_OAM_a] <= sec_OAM_d;
         end
     end
-	assign sec_OAM_q = m_sec_OAM[sec_OAM_a_hold];  //TODO change this to infer block ram
+	assign sec_OAM_q = m_sec_OAM[sec_OAM_a_hold];
 
     //Sprite rendering FSM
     reg[3:0] state;
 
     localparam[3:0]
-        S_IDLE = 4'h0,
-        S_CLEAR = 4'h1,
-        S_EVALUATE = 4'h2,
-        S_EVALUATE_NOP = 4'h3,
-        S_LOAD_NOP = 4'h4,
-        S_LOAD_REGS = 4'h5,
-        S_FETCH_NOP = 4'h6,
-        S_FETCH_PATTERN_LOW = 4'h7,
-        S_FETCH_PATTERN_HIGH = 4'h8;
+		S_IDLE = 4'h0,
+		S_CLEAR = 4'h1,
+		S_EVALUATE = 4'h2,
+		S_EVALUATE_NOP = 4'h3,
+		S_LOAD_NOP = 4'h4,
+		S_LOAD_REGS = 4'h5,
+		S_FETCH_NOP = 4'h6,
+		S_FETCH_PATTERN_LOW = 4'h7,
+		S_FETCH_PATTERN_HIGH = 4'h8;
 
     reg[7:0] OAM_address;
     reg[5:0] sec_OAM_address;
@@ -711,14 +738,17 @@ module PPU_gen2
     reg spr_h_invert;
     reg spr_primary_exists; //indicates that the first sprite found was the primary sprite
     reg sprite_overflow;
+    reg[1:0] spr_timer;
 
     wire[8:0] spr_y_compare;
     wire spr_in_range;
+    wire spr_timer_nz;
 
     //assign spr_y_compare = NES_row - OAM_q;
     assign spr_y_compare = NES_row + ~OAM_q + {7'h0, vert_scaler};
     assign sec_OAM_d = ((sec_OAM_address[1:0] == 2'b00) ? spr_y_compare[7:0] : OAM_q) | {8{~gate_sec_OAM}};  //hack to store relative Y position
     assign spr_in_range = (~|spr_y_compare[8:4]) & (~spr_y_compare[3] | ri_sprite_height);
+    assign spr_timer_nz = |spr_timer;
     assign sec_OAM_wren = sec_OAM_write;
     assign sec_OAM_a = sec_OAM_address[4:0];
     assign OAM_a = (vblank | ~ri_spr_enable) ? ri_oam_address : OAM_address;
@@ -779,11 +809,13 @@ module PPU_gen2
             spr_h_invert <= 1'b0;
             spr_primary_exists <= 1'b0;
             sprite_overflow <= 1'b0;
+            spr_timer <= 2'b00;
         end
         else
         begin
             if(active_rows && ~prev_active_rows)
                 sprite_overflow <= 1'b0;
+            
             if(active_render_area & (|NES_row[7:0]))
             begin
                 if(horiz_advance)
@@ -836,6 +868,10 @@ module PPU_gen2
                 spr_shift_high[6][7:0] <= 8'h00;
                 spr_shift_high[7][7:0] <= 8'h00;
             end
+            
+            if(spr_timer_nz)
+                spr_timer <= spr_timer - 2'b01;
+            
             //state machine logic
             case(state)
                 S_IDLE:
@@ -931,19 +967,23 @@ module PPU_gen2
                             if(ri_sprite_height)
                                 spr_vram_a[4] <= spr_v_invert ^ spr_row[3];
                             spr_vram_a[2:0] <= {3{spr_v_invert}} ^ spr_row[2:0];  //Y position above current line
-                            state <= S_FETCH_NOP;
+                            //state <= S_FETCH_NOP;
+                            state <= S_FETCH_PATTERN_LOW;
                         end
                     endcase
+                    spr_timer <= 2'h3;
+                    spr_vram_a[3] <= 1'b0;
                 end
-                S_FETCH_NOP:
+                /*S_FETCH_NOP:
                 begin
                     spr_vram_a[3] <= 1'b0;
                     if(horiz_advance)
                         state <= S_FETCH_PATTERN_LOW;
-                end
+                end*/
                 S_FETCH_PATTERN_LOW:
                 begin
-                    if(horiz_advance)
+                    //if(horiz_advance)
+                    if(~spr_timer_nz)
                     begin
                         spr_vram_a[3] <= 1'b1;
                         if(spr_h_invert)
@@ -959,13 +999,14 @@ module PPU_gen2
                             spr_shift_low[sec_OAM_address[4:2]][9] <= vram_d_in[6];
                             spr_shift_low[sec_OAM_address[4:2]][8] <= vram_d_in[7];
                         end
-                        //spr_shift_low[sec_OAM_address[4:2]][15:8] <= spr_h_invert ? vram_d_in[7:0] : vram_d_in[0:7];
+                        spr_timer <= 2'h3;
                         state <= S_FETCH_PATTERN_HIGH;
                     end
                 end
                 S_FETCH_PATTERN_HIGH:
                 begin
-                    if(horiz_advance)
+                    //if(horiz_advance)
+                    if(~spr_timer_nz)
                     begin
                         sec_OAM_address <= sec_OAM_address + 5'h01;
                         if(spr_h_invert)
@@ -981,7 +1022,6 @@ module PPU_gen2
                             spr_shift_high[sec_OAM_address[4:2]][9] <= vram_d_in[6];
                             spr_shift_high[sec_OAM_address[4:2]][8] <= vram_d_in[7];
                         end
-                        //spr_shift_high[sec_OAM_address[4:2]][15:8] <= spr_h_invert ? vram_d_in[7:0] : vram_d_in[0:7];
                         if(&sec_OAM_address[4:2])
                             state <= S_IDLE;
                         else
@@ -1031,7 +1071,7 @@ module PPU_gen2
 
     assign pram_a = (vblank | ~(ri_spr_enable | ri_bg_enable)) ? ((vram_a_out[4:0] & 5'h03) ? (vram_a_out[4:0]) : (vram_a_out[4:0] & 5'h0f)) : (pram_address);
 
-    initial
+    /*initial
     begin
         palette_ram[5'h00] = 6'h09;
         palette_ram[5'h01] = 6'h01;
@@ -1065,7 +1105,7 @@ module PPU_gen2
         palette_ram[5'h1d] = 6'h20;
         palette_ram[5'h1e] = 6'h2c;
         palette_ram[5'h1f] = 6'h08;
-    end
+    end*/
 
     always @(posedge clk_in)
     begin
@@ -1097,7 +1137,8 @@ module PPU_gen2
             spr0_hit <= 1'b0;
         else
         begin
-            if(active_rows & ~prev_active_rows)
+            //if(active_rows & ~prev_active_rows)
+			if(last_scanline)
                 spr0_hit <= 1'b0;
             else if(spr_primary && !spr_trans && !bg_trans)
                 spr0_hit <= 1'b1;
@@ -1188,6 +1229,7 @@ module PPU_gen2
         if(rst_in)
         begin
             rgb_buf <= 6'h00;
+			vde <= 1'b0;
             hsync_out <= 1'b0;
             vsync_out <= 1'b0;
         end
@@ -1198,12 +1240,13 @@ module PPU_gen2
             else
                 rgb_buf <= rgb_reg;
             
+			vde <= active_draw_area;
             hsync_out <= HSYNC;
             vsync_out <= VSYNC;
         end
     end
 
-    assign { r_out, g_out, b_out } = rgb_buf;
+    assign {r_out, g_out, b_out} = rgb_buf;
     assign vram_a_out  = (ri_spr_enable && ~active_render_area && ~vblank) ? {1'b0, spr_vram_a} : bg_vram_a;
 
 endmodule

@@ -263,6 +263,7 @@ set_global_assignment -name EDA_TEST_BENCH_FILE wram.qip -section_id Testbench_s
 set_global_assignment -name EDA_TEST_BENCH_FILE wram.v -section_id Testbench_sdram
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 16
+set_global_assignment -name VHDL_FILE t65/T65.vhd
 set_global_assignment -name SYSTEMVERILOG_FILE button_debounce.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cpu/apu/apu_triangle.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cpu/apu/apu_pulse_test.sv
@@ -277,7 +278,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE cpu/apu/apu.sv
 set_global_assignment -name VHDL_FILE t65/T65_Pack.vhd
 set_global_assignment -name VHDL_FILE t65/T65_MCode.vhd
 set_global_assignment -name VHDL_FILE t65/T65_ALU.vhd
-set_global_assignment -name VHDL_FILE t65/T65.vhd
 set_global_assignment -name SYSTEMVERILOG_FILE eeprom.sv
 set_global_assignment -name SYSTEMVERILOG_FILE SDRAM_SP8_I.sv
 set_global_assignment -name SDC_FILE SDC1.sdc

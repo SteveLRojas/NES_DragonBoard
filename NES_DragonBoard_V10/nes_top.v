@@ -70,7 +70,13 @@ module NES_DragonBoard(
 		end
 	end
 	
-	button_debounce button_debounce_i
+	button_debounce
+	#(
+		.INVERT_BUTTONS(1'b1),
+		.NUM_BUTTONS(4),
+		.CLK_DIV_BITS(15)
+	)
+	button_debounce_i
 	(
 		.clk(clk_25),
 		.rst_in(reset),
@@ -90,8 +96,7 @@ module NES_DragonBoard(
 	wire[15:0] rp2a03_a;
 	wire rp2a03_r_nw;
 	wire cpu_reset;
-	
-	assign cpu_reset = rst;
+
 	assign LED[3] = ~cpu_reset;
 
 	rp2a03 rp2a03_blk(
@@ -144,6 +149,7 @@ module NES_DragonBoard(
 		 .ri_r_nw_in(ppu_ri_r_nw),
 		 .ri_d_in(from_cpu),
 		 .vram_d_in(ppu_vram_din),
+		 .vde(),
 		 .hsync_out(VGA_HSYNC),
 		 .vsync_out(VGA_VSYNC),
 		 .r_out(VGA_RED),
@@ -170,7 +176,9 @@ module NES_DragonBoard(
 	assign cart_prg_nce = ~rp2a03_a[15];
 
 	cart cart_blk(
-		.clk_in(clk_25),
+		.clk_sys(clk_25),
+		.rst(rst),
+		.rst_out(cpu_reset),
 		.prg_nce_in(cart_prg_nce),
 		.prg_a_in(rp2a03_a[14:0]),
 		.prg_r_nw_in(rp2a03_r_nw),
